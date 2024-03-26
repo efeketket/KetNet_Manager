@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -77,8 +78,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.label1 = new System.Windows.Forms.Label();
+            this.process1 = new System.Diagnostics.Process();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -107,7 +108,9 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label8);
@@ -149,9 +152,9 @@
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(25, 25);
+            this.groupBox1.Location = new System.Drawing.Point(27, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1229, 592);
+            this.groupBox1.Size = new System.Drawing.Size(1229, 668);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Masalar";
@@ -164,6 +167,15 @@
             this.label16.Size = new System.Drawing.Size(88, 25);
             this.label16.TabIndex = 24;
             this.label16.Text = "Masa 21";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 604);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
             // 
             // label9
             // 
@@ -522,7 +534,7 @@
             // pictureBox10
             // 
             this.pictureBox10.ContextMenuStrip = this.contextMenuStrip1;
-            this.pictureBox10.Image = global::ketnetmanager.Resource1.onmonitor;
+            this.pictureBox10.Image = global::ketnetmanager.Resource1.offmonitor;
             this.pictureBox10.Location = new System.Drawing.Point(26, 44);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(150, 150);
@@ -629,31 +641,30 @@
             this.pictureBox1.Tag = "masa6";
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // toolStrip1
+            // process1
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1288, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
             // 
-            // label1
+            // button1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 650);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.button1.Location = new System.Drawing.Point(1050, 616);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 34);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Ayarlar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1288, 805);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "  ";
@@ -682,7 +693,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -714,7 +724,6 @@
         private System.Windows.Forms.ToolStripMenuItem açKapatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem masaBilgileriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem masaBilgileriToolStripMenuItem1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label9;
@@ -737,6 +746,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Diagnostics.Process process1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

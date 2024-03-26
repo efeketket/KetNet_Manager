@@ -19,7 +19,7 @@ namespace ketnetmanager
         public int ToplamBorc { get; set; }
         public bool IsAcik = false;
 
-        Stopwatch Kronometre = new Stopwatch();
+        private Stopwatch Kronometre = new Stopwatch();
 
 
         public Masalar(string tag)
@@ -46,38 +46,45 @@ namespace ketnetmanager
         {
             this.IsAcik = false;
             this.ToplamBorc += SureBitir() * this.GuncelDakikalıkUcret;
-
+            LogIsle();
         }
         public virtual void Ac()
         {
             this.IsAcik = true;
             SureBaslat();
             LogIsle();
-
-
         }
 
         public virtual void SureBaslat()
         {
-            Kronometre.Start();
+            this.Kronometre.Start();
         }
 
         public virtual int SureBitir()
         {
-            Kronometre.Stop();
+            this.Kronometre.Stop();
             TimeSpan elapsedTime = Kronometre.Elapsed;
-            int mySure = elapsedTime.Minutes;
+            int mySure = elapsedTime.Seconds;
+            this.GecenSure = mySure; 
             return mySure;
         }
 
         public virtual void LogIsle()
         {
-            string today = DateTime.Today.ToString().Replace('\\','_');
-            string myDosya = Path.Combine("C:\\Users\\Efe\\Desktop\\Calismalar v0.1\\ketnetmanager\\masalogs", today + ".txt");
+            string today = DateTime.Today.ToShortDateString();
+            string hour = String.Format("{0:HH}:{0:mm}:{0:ss}", DateTime.Now);
+            string myDosya = Path.Combine("C:\\Users\\Efe\\Desktop\\Calismalar v0.1\\ketnetmanager\\masalogs\\masalogs.txt");
 
-            using (StreamWriter sw = new StreamWriter(myDosya, true))
+            using (StreamWriter myYazici = new StreamWriter(myDosya, true))
             {
-                sw.WriteLine(this.MasaTag + " " + today + " " + this.IsAcik);
+
+                if (this.IsAcik == true)
+                {
+                    myYazici.WriteLine(today+" " + hour+ " - "+ this.IsAcik +"  " +this.MasaTag);
+                } else
+                {
+                    myYazici.WriteLine(today + " " +hour + " - " + this.IsAcik + " " + this.MasaTag +" "+this.GecenSure);
+                }
             }
         }
     }

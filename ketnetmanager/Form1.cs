@@ -35,6 +35,9 @@ namespace ketnetmanager
             Masalar masa20 = new Masalar("masa20");
             Masalar masa21 = new Masalar("masa21");
 
+            Image offmonitor = ketnetmanager.Resource1.offmonitor;
+            Image onmonitor = ketnetmanager.Resource1.onmonitor;
+
         public Form1()
         {
             InitializeComponent();
@@ -52,8 +55,6 @@ namespace ketnetmanager
 
         private void açKapatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                Image offmonitor = ketnetmanager.Resource1.offmonitor;
-                Image onmonitor = ketnetmanager.Resource1.onmonitor;
                 bool isAcik = false;    
 
                 ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
@@ -61,7 +62,6 @@ namespace ketnetmanager
                 PictureBox pictureBox = (PictureBox)menu.SourceControl;
 
                 string tag = pictureBox.Tag.ToString();
-
 
             switch (tag)
                 {
@@ -93,7 +93,7 @@ namespace ketnetmanager
                     case "masa6":
                         label1.Text = tag;
                         masa6.AcKapat();
-                    isAcik = masa1.IsAcik;
+                    isAcik = masa6.IsAcik;
                     break;
                     case "masa7":
                         label1.Text = tag;
@@ -184,6 +184,16 @@ namespace ketnetmanager
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
