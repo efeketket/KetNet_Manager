@@ -271,5 +271,10 @@ namespace ketnetmanager
         {
 
         }
+
+        private void Ürünler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

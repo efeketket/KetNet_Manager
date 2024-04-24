@@ -1,41 +1,29 @@
-[3/30/2024] [15:38:03] - False masa12
-                 Geçen Süre : 0 Masa Borcu : 0
-[3/30/2024] [15:38:18] - True masa4
-[3/30/2024] [15:38:19] - False masa4
-                         Geçen Süre : 0 Masa Borcu : 0
-[3/30/2024] [15:38:29] - True masa6
-[3/30/2024] [15:38:30] - True masa9
-[3/30/2024] [15:38:30] - False masa9
-                         Geçen Süre : 0 Masa Borcu : 0
-[3/30/2024] [15:38:31] - True masa20
-[3/30/2024] [15:38:32] - True masa15
-[3/30/2024] [15:38:33] - False masa15
-                         Geçen Süre : 0 Masa Borcu : 0
-[3/30/2024] [15:38:34] - False masa20
-                         Geçen Süre : 2 Masa Borcu : 0
-[3/30/2024] [15:38:35] - False masa6
-                         Geçen Süre : 5 Masa Borcu : 0
-[3/30/2024] [15:38:43] - True masa15
-[3/30/2024] [15:38:44] - True masa21
-[3/30/2024] [15:38:44] - True masa2
-[3/30/2024] [15:38:46] - True masa18
-[3/30/2024] [15:38:47] - True masa7
-[3/30/2024] [15:38:47] - False masa7
-                         Geçen Süre : 0 Masa Borcu : 0
-[3/30/2024] [15:38:48] - False masa21
+
+[4/1/2024] [13:13:24] - True masa14
+[4/1/2024] [13:13:37] - False masa16
+                         Geçen Süre : 30 Masa Borcu : 10
+[4/1/2024] [13:13:50] - False masa5
+                         Geçen Süre : 39 Masa Borcu : 13
+[4/1/2024] [13:14:32] - False masa14
+                         Geçen Süre : 7 Masa Borcu : 2.33333333333333
+[4/7/2024] [03:11:15] - True masa11
+[4/7/2024] [03:11:16] - True masa21
+[4/7/2024] [03:11:17] - True masa15
+[4/7/2024] [03:11:22] - True masa1
+[4/7/2024] [03:11:32] - False masa11
+                         Geçen Süre : 17 Masa Borcu : 17
+[4/7/2024] [03:11:33] - False masa1
+                         Geçen Süre : 10 Masa Borcu : 10
+[4/7/2024] [03:11:43] - False masa15
+                         Geçen Süre : 26 Masa Borcu : 26
+[4/7/2024] [03:12:01] - False masa21
+                         Geçen Süre : 45 Masa Borcu : 45
+[4/24/2024] [13:34:25] - True masa4
+[4/24/2024] [13:34:30] - True masa21
+[4/24/2024] [13:34:50] - False masa4
+                         Geçen Süre : 25 Masa Borcu : 8.33333333333333
+[4/24/2024] [13:35:18] - False masa21
+                         Geçen Süre : 48 Masa Borcu : 16
+[4/24/2024] [13:35:47] - True masa5
+[4/24/2024] [13:35:51] - False masa5
                          Geçen Süre : 4 Masa Borcu : 1.33333333333333
-[3/30/2024] [15:38:49] - False masa15
-                         Geçen Süre : 6 Masa Borcu : 2
-[3/30/2024] [15:38:50] - False masa18
-                         Geçen Süre : 4 Masa Borcu : 1.33333333333333
-[3/30/2024] [15:38:51] - False masa2
-                         Geçen Süre : 6 Masa Borcu : 2
-[3/30/2024] [15:49:27] - True masa19
-[3/30/2024] [15:49:28] - True masa1
-[3/30/2024] [15:49:32] - True masa21
-[3/30/2024] [15:49:33] - False masa19
-                         Geçen Süre : 6 Masa Borcu : 0
-[3/30/2024] [15:49:39] - False masa1
-                         Geçen Süre : 11 Masa Borcu : 1.83333333333333
-[3/30/2024] [15:49:40] - False masa21
-                         Geçen Süre : 8 Masa Borcu : 1.33333333333333

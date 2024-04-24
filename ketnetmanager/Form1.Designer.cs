@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -65,6 +66,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.açKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masaBilgileriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ürünEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ürünSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masaBilgileriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
@@ -94,9 +97,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.ürünEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ürünSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -181,6 +181,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bilgisayar Paneli";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(964, 619);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(75, 25);
+            this.label27.TabIndex = 34;
+            this.label27.Text = "label27";
             // 
             // button6
             // 
@@ -498,6 +507,18 @@
             this.masaBilgileriToolStripMenuItem.Text = "Masayı Yönet";
             this.masaBilgileriToolStripMenuItem.Click += new System.EventHandler(this.masaBilgileriToolStripMenuItem_Click);
             // 
+            // ürünEkleToolStripMenuItem
+            // 
+            this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
+            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(219, 40);
+            this.ürünEkleToolStripMenuItem.Text = "Ürün Ekle";
+            // 
+            // ürünSilToolStripMenuItem
+            // 
+            this.ürünSilToolStripMenuItem.Name = "ürünSilToolStripMenuItem";
+            this.ürünSilToolStripMenuItem.Size = new System.Drawing.Size(219, 40);
+            this.ürünSilToolStripMenuItem.Text = "Ürün Sil";
+            // 
             // masaBilgileriToolStripMenuItem1
             // 
             this.masaBilgileriToolStripMenuItem1.Name = "masaBilgileriToolStripMenuItem1";
@@ -791,6 +812,7 @@
             this.Ürünler.Name = "Ürünler";
             this.Ürünler.Size = new System.Drawing.Size(1199, 628);
             this.Ürünler.TabIndex = 0;
+            this.Ürünler.SelectedIndexChanged += new System.EventHandler(this.Ürünler_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -827,27 +849,6 @@
             this.button8.TabIndex = 34;
             this.button8.Text = "Satış Geçmişi";
             this.button8.UseVisualStyleBackColor = true;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(964, 619);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(75, 25);
-            this.label27.TabIndex = 34;
-            this.label27.Text = "label27";
-            // 
-            // ürünEkleToolStripMenuItem
-            // 
-            this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.ürünEkleToolStripMenuItem.Text = "Ürün Ekle";
-            // 
-            // ürünSilToolStripMenuItem
-            // 
-            this.ürünSilToolStripMenuItem.Name = "ürünSilToolStripMenuItem";
-            this.ürünSilToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
-            this.ürünSilToolStripMenuItem.Text = "Ürün Sil";
             // 
             // Form1
             // 
