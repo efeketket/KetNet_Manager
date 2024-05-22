@@ -11,6 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace ketnetmanager
 {
@@ -39,7 +40,7 @@ namespace ketnetmanager
             readonly Masalar masa21 = new Masalar("masa21");
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
-            readonly string myDosya = Path.Combine("C:\\Users\\Efe\\Desktop\\Calismalar v0.1\\ketnetmanager\\masalogs\\masalogs.txt");
+            readonly string myDosya = Resource1.masalogs;
             public double saatlikUcret;
             public double kazanc;
 
@@ -48,6 +49,10 @@ namespace ketnetmanager
         {
             InitializeComponent();
             
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -229,8 +234,16 @@ namespace ketnetmanager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Process.Start(myDosya);
-        }
+            string resource_data = Resource1.masalogs;
+            List<string> logList = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            label27.Text = logList.Count.ToString();
+            textBox2.Lines = logList.ToArray();
+            textBox2.ScrollBars = ScrollBars.Both;
+            textBox2.ReadOnly = true;
+
+            groupBox1.Hide();
+            groupBox4.Show();
+        } 
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -267,14 +280,52 @@ namespace ketnetmanager
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Ürünler_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Ürünler_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button10_Click(object sender, EventArgs e)
         {
 
+            using (StreamWriter myYazici = new StreamWriter(myDosya, true))
+            {
+                myYazici.Write(myDosya);
+            }
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            groupBox1.Show();
+            groupBox4.Hide();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                saatlikUcret = Convert.ToInt32(textBox1.Text);
+                label25.Text = Convert.ToString(saatlikUcret);
+                MessageBox.Show("Saatlik ücret " + saatlikUcret + "₺ olarak ayarlandı.");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Lütfen geçerli bir sayı girin.", "Geçersiz Değer!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("Girilen sayı çok büyük veya çok küçük.", "Geçersiz Değer!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

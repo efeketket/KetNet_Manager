@@ -27,3 +27,9 @@
 [4/24/2024] [13:35:47] - True masa5
 [4/24/2024] [13:35:51] - False masa5
                          Geçen Süre : 4 Masa Borcu : 1.33333333333333
+[5/21/2024] [14:11:04] - True masa1
+[5/21/2024] [14:11:06] - False masa1
+                         Geçen Süre : 1 Masa Borcu : 0
+[5/21/2024] [14:11:13] - True masa10
+[5/21/2024] [14:11:32] - False masa10
+                         Geçen Süre : 18 Masa Borcu : 3

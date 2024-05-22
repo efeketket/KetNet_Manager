@@ -12,6 +12,9 @@ namespace ketnetmanager
 {
     internal class Masalar
     {
+
+        public string myDosya = Resource1.masalogs;
+
         public string MasaTag { get; set; }
         public int GecenSure { get; set; }
         public double ToplamBorc { get; set; }
@@ -38,7 +41,7 @@ namespace ketnetmanager
                 Kapat(SaatlikUcret);
             }
 
-            LogIsle();
+           // LogIsle();
         }
 
         public virtual void Kapat(double SaatlikUcret)
@@ -73,7 +76,6 @@ namespace ketnetmanager
         {
             string today = DateTime.Today.ToShortDateString();
             string hour = String.Format("{0:HH}:{0:mm}:{0:ss}", DateTime.Now);
-            string myDosya = Path.Combine("C:\\Users\\Efe\\Desktop\\Calismalar v0.1\\ketnetmanager\\masalogs\\masalogs.txt");
 
             using (StreamWriter myYazici = new StreamWriter(myDosya, true))
             {
