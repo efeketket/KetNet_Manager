@@ -61,6 +61,86 @@ namespace ketnetmanager {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bgimgbar2white {
+            get {
+                object obj = ResourceManager.GetObject("bgimgbar2white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonlogin {
+            get {
+                object obj = ResourceManager.GetObject("buttonlogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonlogin11 {
+            get {
+                object obj = ResourceManager.GetObject("buttonlogin11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap buttonloginwithtxt {
+            get {
+                object obj = ResourceManager.GetObject("buttonloginwithtxt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap girisbutonpanel1 {
+            get {
+                object obj = ResourceManager.GetObject("girisbutonpanel1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap kullanicipanelicon {
+            get {
+                object obj = ResourceManager.GetObject("kullanicipanelicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap loginbg {
+            get {
+                object obj = ResourceManager.GetObject("loginbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap loginbgbar {
+            get {
+                object obj = ResourceManager.GetObject("loginbgbar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 
         ///[4/1/2024] [13:13:24] - True masa14
         ///[4/1/2024] [13:13:37] - False masa16
@@ -97,6 +177,16 @@ namespace ketnetmanager {
         public static System.Drawing.Bitmap onmonitor {
             get {
                 object obj = ResourceManager.GetObject("onmonitor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sifrepanelicon {
+            get {
+                object obj = ResourceManager.GetObject("sifrepanelicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
