@@ -63,6 +63,16 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bgimgbar2gray {
+            get {
+                object obj = ResourceManager.GetObject("bgimgbar2gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap bgimgbar2white {
             get {
                 object obj = ResourceManager.GetObject("bgimgbar2white", resourceCulture);
@@ -113,9 +123,49 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap hidepasswordimg {
+            get {
+                object obj = ResourceManager.GetObject("hidepasswordimg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hidepasswordimg1 {
+            get {
+                object obj = ResourceManager.GetObject("hidepasswordimg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hidepasswordtransph {
+            get {
+                object obj = ResourceManager.GetObject("hidepasswordtransph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap kullanicipanelicon {
             get {
                 object obj = ResourceManager.GetObject("kullanicipanelicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap kullanicipanelicontranspharant {
+            get {
+                object obj = ResourceManager.GetObject("kullanicipanelicontranspharant", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -184,9 +234,39 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap seepaswordimg {
+            get {
+                object obj = ResourceManager.GetObject("seepaswordimg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap seepaswordtransph {
+            get {
+                object obj = ResourceManager.GetObject("seepaswordtransph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap sifrepanelicon {
             get {
                 object obj = ResourceManager.GetObject("sifrepanelicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap transpharanebglock {
+            get {
+                object obj = ResourceManager.GetObject("transpharanebglock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

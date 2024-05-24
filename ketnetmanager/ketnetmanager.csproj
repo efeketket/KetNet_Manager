@@ -132,5 +132,29 @@
   <ItemGroup>
     <None Include="Resources\buttonloginwithtxt.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hidepasswordimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seepaswordimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hidepasswordimg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgimgbar2gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kullanicipanelicontranspharant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transpharanebglock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seepaswordtransph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hidepasswordtransph.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

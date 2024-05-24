@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Data.SqlClient;
 
 namespace ketnetmanager
 {
+    
     internal class Masalar
     {
-
         public string myDosya = Resource1.masalogs;
 
         public string MasaTag { get; set; }
@@ -41,7 +42,7 @@ namespace ketnetmanager
                 Kapat(SaatlikUcret);
             }
 
-           // LogIsle();
+           LogKaydet();
         }
 
         public virtual void Kapat(double SaatlikUcret)
@@ -90,5 +91,31 @@ namespace ketnetmanager
                 }
             }
         }
+
+        public virtual void LogKaydet()
+        {
+
+            string connectionString = Properties.Resources.sqllink;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string insertQuery = @"
+                                     INSERT INTO LogDefteri (Tarih, Saat, Durum, MasaTag, GecenSure, ToplamBorc)
+                                     VALUES (@tarih, @saat, @durum, @masaTag, @gecenSure, @toplamBorc)";
+                
+                using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@tarih", DateTime.Today.ToShortDateString());
+                    command.Parameters.AddWithValue("@saat", DateTime.Now.ToString("HH:mm:ss"));
+                    command.Parameters.AddWithValue("@durum", this.IsAcik ? "Açıldı" : "Kapatıldı");
+                    command.Parameters.AddWithValue("@masaTag", this.MasaTag);
+                    command.Parameters.AddWithValue("@gecenSure", this.GecenSure);
+                    command.Parameters.AddWithValue("@toplamBorc", this.ToplamBorc);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

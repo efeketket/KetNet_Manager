@@ -17,7 +17,7 @@ namespace ketnetmanager
 {
     public partial class Form1 : Form
     {
-            readonly string sqlbaglantisi = Properties.Resources.sqllink;
+            //readonly string sqlbaglantisi = Properties.Resources.sqllink;
 
             readonly Masalar masa1 = new Masalar("masa1");
             readonly Masalar masa2 = new Masalar("masa2");
