@@ -17,6 +17,8 @@ namespace ketnetmanager
 {
     public partial class Form1 : Form
     {
+            readonly string sqlbaglantisi = Properties.Resources.sqllink;
+
             readonly Masalar masa1 = new Masalar("masa1");
             readonly Masalar masa2 = new Masalar("masa2");
             readonly Masalar masa3 = new Masalar("masa3");
@@ -41,6 +43,7 @@ namespace ketnetmanager
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
             readonly string myDosya = Resource1.masalogs;
+            
             public double saatlikUcret;
             public double kazanc;
 
