@@ -14,10 +14,12 @@ namespace ketnetmanager
     
     internal class Masalar
     {
+        readonly string connectionString = Properties.Resources.sqllink;
+
         public string myDosya = Resource1.masalogs;
 
         public string MasaTag { get; set; }
-        public int GecenSure { get; set; }
+        public string GecenSure { get; set; }
         public double ToplamBorc { get; set; }
         public bool IsAcik = false;
 
@@ -39,10 +41,11 @@ namespace ketnetmanager
             }
             else
             {
+                this.GecenSure = "asdsa";
                 Kapat(SaatlikUcret);
             }
 
-           LogKaydet();
+            LogKaydet();
         }
 
         public virtual void Kapat(double SaatlikUcret)
@@ -59,43 +62,24 @@ namespace ketnetmanager
 
         public virtual void SureBaslat()
         {
+            this.GecenSure = "00:00";
             this.Kronometre.Start();
         }
 
         public virtual int SureBitir()
         {
-
             //Minutes yap sonra.
             this.Kronometre.Stop();
             TimeSpan elapsedTime = Kronometre.Elapsed;
             int mySure = elapsedTime.Seconds;
-            this.GecenSure = mySure; 
+            this.GecenSure = string.Format("{0:D2}:{1:D2}", (int)elapsedTime.TotalHours, elapsedTime.Minutes);
             return mySure;
         }
 
-        public virtual void LogIsle()
-        {
-            string today = DateTime.Today.ToShortDateString();
-            string hour = String.Format("{0:HH}:{0:mm}:{0:ss}", DateTime.Now);
-
-            using (StreamWriter myYazici = new StreamWriter(myDosya, true))
-            {
-
-                if (this.IsAcik == true)
-                {
-                    myYazici.WriteLine("[" + today + "]" + " " + "[" + hour + "]" + " - " + this.IsAcik +" "+this.MasaTag);
-                } else
-                {
-                    myYazici.WriteLine("[" + today + "]" + " " + "[" +hour + "]" +" - " + this.IsAcik + " " + this.MasaTag);
-                    myYazici.WriteLine("                         Geçen Süre : " + this.GecenSure + " Masa Borcu : " + this.ToplamBorc);
-                }
-            }
-        }
 
         public virtual void LogKaydet()
         {
 
-            string connectionString = Properties.Resources.sqllink;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -116,6 +100,27 @@ namespace ketnetmanager
                 }
             }
         }
+
+        //eski method dosyaya işliyor
+        /*public virtual void LogIsle()
+        {
+            string today = DateTime.Today.ToShortDateString();
+            string hour = String.Format("{0:HH}:{0:mm}:{0:ss}", DateTime.Now);
+
+            using (StreamWriter myYazici = new StreamWriter(myDosya, true))
+            {
+
+                if (this.IsAcik == true)
+                {
+                    myYazici.WriteLine("[" + today + "]" + " " + "[" + hour + "]" + " - " + this.IsAcik +" "+this.MasaTag);
+                } else
+                {
+                    myYazici.WriteLine("[" + today + "]" + " " + "[" +hour + "]" +" - " + this.IsAcik + " " + this.MasaTag);
+                    myYazici.WriteLine("                         Geçen Süre : " + this.GecenSure + " Masa Borcu : " + this.ToplamBorc);
+                }
+            }
+        }*/
+
 
     }
 }

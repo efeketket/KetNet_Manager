@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
@@ -17,7 +18,7 @@ namespace ketnetmanager
 {
     public partial class Form1 : Form
     {
-            //readonly string sqlbaglantisi = Properties.Resources.sqllink;
+            readonly string sqlbaglantisi = Properties.Resources.sqllink;
 
             readonly Masalar masa1 = new Masalar("masa1");
             readonly Masalar masa2 = new Masalar("masa2");
@@ -220,6 +221,32 @@ namespace ketnetmanager
 
         }
 
+        private void SayfaDegistir(Panel acilacakPanel)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Panel panel && panel != acilacakPanel)
+                {
+                    panel.Visible = false;
+                }
+            }
+            acilacakPanel.Visible = true;
+        }
+
+        private void LogGoster()
+        {
+            using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
+            {
+                string query = "SELECT * FROM LogDefteri";
+                SqlDataAdapter myLogs = new SqlDataAdapter(query, baglanti);
+                DataTable table = new DataTable();
+                myLogs.Fill(table);
+
+                dataGridView1.DataSource = table;
+            }
+        }
+
+
         private void pictureBox10_Click(object sender, EventArgs e)
         {
 
@@ -235,17 +262,17 @@ namespace ketnetmanager
 
         }
 
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             string resource_data = Resource1.masalogs;
             List<string> logList = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
             label27.Text = logList.Count.ToString();
-            textBox2.Lines = logList.ToArray();
-            textBox2.ScrollBars = ScrollBars.Both;
-            textBox2.ReadOnly = true;
 
-            groupBox1.Hide();
-            groupBox4.Show();
+            LogGoster();
+
+            SayfaDegistir(panel1);
         } 
 
         private void button2_Click(object sender, EventArgs e)
@@ -268,14 +295,12 @@ namespace ketnetmanager
 
         private void button6_Click(object sender, EventArgs e)
         {
-            groupBox3.Show();
-            groupBox1.Hide();
+            SayfaDegistir(panel3);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            groupBox1.Show();
-            groupBox3.Hide();
+            SayfaDegistir(panel2);
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -294,18 +319,11 @@ namespace ketnetmanager
 
         private void button10_Click(object sender, EventArgs e)
         {
-
-            using (StreamWriter myYazici = new StreamWriter(myDosya, true))
-            {
-                myYazici.Write(myDosya);
-            }
-
+            LogGoster();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            groupBox1.Show();
-            groupBox4.Hide();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -329,6 +347,16 @@ namespace ketnetmanager
             {
                 MessageBox.Show("Girilen sayı çok büyük veya çok küçük.", "Geçersiz Değer!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

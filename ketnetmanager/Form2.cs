@@ -25,17 +25,41 @@ namespace ketnetmanager
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-           
-            panel1.BackColor = Color.FromArgb(100,0,0,0);
-            panel2.BorderStyle = BorderStyle.None;
-            panel3.BorderStyle = BorderStyle.None;
-            button1.FlatAppearance.MouseOverBackColor = button1.BackColor;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.FlatAppearance.BorderSize = 0;
-
-            textBox1.PasswordChar = '*';
-
+            //manuel görsel değişiklikler
+            this.panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
+            this.panel2.BorderStyle = BorderStyle.None;
+            this.panel3.BorderStyle = BorderStyle.None;
+            this.button1.FlatAppearance.MouseOverBackColor = button1.BackColor;
+            this.button1.FlatStyle = FlatStyle.Flat;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.textBox1.PasswordChar = '*';
         }
+
+
+        //varsa true, yoksa false alır
+        public bool kullaniciKontrol(string kullaniciAdi, string sifre) 
+        {
+            //bağlantıyı açtık
+            using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
+            {
+                string ara = "SELECT COUNT(*) FROM kullanicilar WHERE kullaniciNick = @kullaniciad AND kullaniciSifre = @sifre";
+                //gönderdiğimiz query verdiğimiz değişkenlerden kaç tane tablomuzda var onu sayıyor
+
+                using (SqlCommand komut = new SqlCommand(ara, baglanti))
+                {
+                    komut.Parameters.AddWithValue("@kullaniciad", kullaniciAdi);
+                    komut.Parameters.AddWithValue("@sifre", sifre);
+
+                    baglanti.Open();
+                    int count = (int)komut.ExecuteScalar();
+                    baglanti.Close();
+
+                    // kaç tane kayıt olduğuna bakar. 1'den büyükse 1 alır true döndürür
+                    return count > 0;
+                }
+            }
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -71,29 +95,8 @@ namespace ketnetmanager
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //kullanıcının olup olmadığını kontrol etmemize yarayan fonksiyon
-            bool KullaniciVarMi(string kullaniciAdi, string sifre)
-            {
-               //bağlantıyı açtık
-               using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
-                {
-                    string sql = "SELECT COUNT(*) FROM kullanicilar WHERE kullaniciNick = @nick AND kullaniciSifre = @sifre";
 
-                    using (SqlCommand komut = new SqlCommand(sql, baglanti))
-                    {
-                        komut.Parameters.AddWithValue("@nick", kullaniciAdi);
-                        komut.Parameters.AddWithValue("@sifre", sifre);
-
-                        baglanti.Open();
-                        int count = (int)komut.ExecuteScalar();
-                        baglanti.Close();
-
-                        return count > 0;
-                    }
-                }
-            }
-
-            if (KullaniciVarMi(textBox2.Text, textBox1.Text)) // Şifreyi hashleyerek gönderin
+            if (kullaniciKontrol(textBox2.Text, textBox1.Text) == true) // Şifreyi hashleyerek gönderin
             {
                 
                 Form1 form = new Form1();
@@ -108,6 +111,8 @@ namespace ketnetmanager
             }
         }
 
+
+        //textboxa girildiğinde yürütülen fonksiyonlar
         private void textBox2_Enter(object sender, EventArgs e)
         {
             panel2.BackgroundImage = Resource1.bgimgbar2gray;
@@ -126,15 +131,19 @@ namespace ketnetmanager
             textBox1.BackColor = Color.LightGray;
         }
 
+
+        //şifre göster-sakla fonksiyonu
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (isHide == false)
             {
+                //şifreyi saklama fonksiyonları
                 textBox1.PasswordChar = '*';
                 pictureBox3.Image = Resource1.seepaswordtransph;
                 isHide = true;
             } else
             {
+                //şifreyi gösterme fonksiyonları
                 textBox1.PasswordChar = (char)0;
                 pictureBox3.Image = Resource1.hidepasswordtransph;
                 isHide = false;
