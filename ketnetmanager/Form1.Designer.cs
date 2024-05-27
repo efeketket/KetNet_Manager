@@ -42,6 +42,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -211,9 +212,9 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1041, 583);
+            this.button10.Location = new System.Drawing.Point(1076, 801);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 50);
+            this.button10.Size = new System.Drawing.Size(150, 32);
             this.button10.TabIndex = 2;
             this.button10.Text = "Güncelle";
             this.button10.UseVisualStyleBackColor = true;
@@ -221,6 +222,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.button10);
@@ -229,6 +231,22 @@
             this.panel1.Size = new System.Drawing.Size(1250, 850);
             this.panel1.TabIndex = 36;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Bugün",
+            "Son 1 Hafta",
+            "Son 1 Ay",
+            "Son 3 Ay",
+            "Son Yıl"});
+            this.comboBox1.Location = new System.Drawing.Point(1023, 593);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(203, 32);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -239,7 +257,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 72;
             this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(1168, 523);
+            this.dataGridView1.Size = new System.Drawing.Size(1203, 523);
             this.dataGridView1.TabIndex = 10;
             // 
             // groupBox2
@@ -291,6 +309,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Güncelle";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // textBox1
             // 
@@ -299,6 +318,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 41);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // panel2
             // 
@@ -835,9 +855,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.Text = "Ketnet Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -940,6 +960,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

@@ -40,7 +40,7 @@ namespace ketnetmanager
             readonly Masalar masa18 = new Masalar("masa18");
             readonly Masalar masa19 = new Masalar("masa19");
             readonly Masalar masa20 = new Masalar("masa20");
-            readonly Masalar masa21 = new Masalar("masa21");
+            readonly Masalar masa21 = new Masalar("masa21"); 
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
             readonly string myDosya = Resource1.masalogs;
@@ -78,7 +78,6 @@ namespace ketnetmanager
             PictureBox pictureBox = (PictureBox)menu.SourceControl;
 
             string tag = pictureBox.Tag.ToString();
-
             switch (tag)
                 {
                     case "masa1":
@@ -233,12 +232,31 @@ namespace ketnetmanager
             acilacakPanel.Visible = true;
         }
 
-        private void LogGoster()
+        private void LogGoster(string tarih1)
         {
+            string bugun = DateTime.Today.ToString("yyyy-MM-dd");
+
             using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
             {
-                string query = "SELECT * FROM LogDefteri";
-                SqlDataAdapter myLogs = new SqlDataAdapter(query, baglanti);
+                string komut;
+                if (string.IsNullOrEmpty(tarih1)) //tarih1 null ise bugüne kadarki hepsini göster
+                {
+                    komut = "SELECT * FROM LogDefteri WHERE Tarih <= @bugun";
+                }
+                else //değilse aralıktakileri göster
+                {
+                    komut = "SELECT * FROM LogDefteri WHERE Tarih BETWEEN @tarih1 AND @bugun";
+                }
+
+                SqlCommand sqlCommand = new SqlCommand(komut, baglanti);
+                sqlCommand.Parameters.AddWithValue("@bugun", bugun); //bugünün tarihini al
+
+                if (!string.IsNullOrEmpty(tarih1)) // Tarih1 null değilse ekle.
+                {
+                    sqlCommand.Parameters.AddWithValue("@tarih1", tarih1); 
+                }
+
+                SqlDataAdapter myLogs = new SqlDataAdapter(sqlCommand);
                 DataTable table = new DataTable();
                 myLogs.Fill(table);
 
@@ -266,11 +284,7 @@ namespace ketnetmanager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string resource_data = Resource1.masalogs;
-            List<string> logList = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            label27.Text = logList.Count.ToString();
-
-            LogGoster();
+            LogGoster(null);
 
             SayfaDegistir(panel1);
         } 
@@ -319,7 +333,7 @@ namespace ketnetmanager
 
         private void button10_Click(object sender, EventArgs e)
         {
-            LogGoster();
+            LogGoster(null);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -332,6 +346,57 @@ namespace ketnetmanager
         }
 
         private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime bugun = DateTime.Today;
+            DateTime baslangicTarih;
+
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0: // Bugun
+                    baslangicTarih = bugun;
+                    break;
+                case 1: // Son 7 Gün
+                    baslangicTarih = bugun.AddDays(-7);
+                    break;
+                case 2: // Son 30 gün
+                    baslangicTarih = bugun.AddDays(-30);
+                    break;
+                case 3: // Son 90 gün
+                    baslangicTarih = bugun.AddDays(-90);
+                    break;
+                case 4: // Son 360 gün
+                    baslangicTarih = bugun.AddDays(-360);
+                    break;
+                default:
+                    return;
+            }
+
+            string myTarih = baslangicTarih.ToString("yyyy-MM-dd");
+
+            LogGoster(myTarih);
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
         {
             try
             {
@@ -347,16 +412,6 @@ namespace ketnetmanager
             {
                 MessageBox.Show("Girilen sayı çok büyük veya çok küçük.", "Geçersiz Değer!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -41,7 +41,6 @@ namespace ketnetmanager
             }
             else
             {
-                this.GecenSure = "asdsa";
                 Kapat(SaatlikUcret);
             }
 
@@ -62,17 +61,17 @@ namespace ketnetmanager
 
         public virtual void SureBaslat()
         {
-            this.GecenSure = "00:00";
+            this.GecenSure = "";
             this.Kronometre.Start();
         }
 
-        public virtual int SureBitir()
+        public virtual double SureBitir()
         {
-            //Minutes yap sonra.
             this.Kronometre.Stop();
             TimeSpan elapsedTime = Kronometre.Elapsed;
-            int mySure = elapsedTime.Seconds;
-            this.GecenSure = string.Format("{0:D2}:{1:D2}", (int)elapsedTime.TotalHours, elapsedTime.Minutes);
+            //Minutes yap sonra.
+            double mySure = elapsedTime.TotalSeconds;
+            this.GecenSure = string.Format("{0:D2}:{1:D2}", (int)elapsedTime.Minutes, elapsedTime.Seconds);
             return mySure;
         }
 
