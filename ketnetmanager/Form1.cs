@@ -8,39 +8,51 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace ketnetmanager
 {
     public partial class Form1 : Form
     {
-            readonly string sqlbaglantisi = Properties.Resources.sqllink;
+            public static Dictionary<string, double> fiyatTarifeleri = new Dictionary<string, double>()
+                        {
+                            { "Normal Fiyat", 10.0 },
+                            { "Orta Fiyat", 20.0 },
+                            { "V.I.P Fiyat", 30.0 }
+                        };
+            readonly Masalar masa1 = new Masalar("masa1", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa2 = new Masalar("masa2", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa3 = new Masalar("masa3", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa4 = new Masalar("masa4", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa5 = new Masalar("masa5", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa6 = new Masalar("masa6", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa7 = new Masalar("masa7", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa8 = new Masalar("masa8", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa9 = new Masalar("masa9", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa10 = new Masalar("masa10", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa11 = new Masalar("masa11", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa12 = new Masalar("masa12", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa13 = new Masalar("masa13", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa14 = new Masalar("masa14", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa15 = new Masalar("masa15", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa16 = new Masalar("masa16", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa17 = new Masalar("masa17", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa18 = new Masalar("masa18", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa19 = new Masalar("masa19", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa20 = new Masalar("masa20", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa21 = new Masalar("masa21", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa22 = new Masalar("masa22", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa23 = new Masalar("masa23", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa24 = new Masalar("masa24", fiyatTarifeleri["Normal Fiyat"]);
 
-            readonly Masalar masa1 = new Masalar("masa1");
-            readonly Masalar masa2 = new Masalar("masa2");
-            readonly Masalar masa3 = new Masalar("masa3");
-            readonly Masalar masa4 = new Masalar("masa4");
-            readonly Masalar masa5 = new Masalar("masa5");
-            readonly Masalar masa6 = new Masalar("masa6");
-            readonly Masalar masa7 = new Masalar("masa7");
-            readonly Masalar masa8 = new Masalar("masa8");
-            readonly Masalar masa9 = new Masalar("masa9");
-            readonly Masalar masa10 = new Masalar("masa10");
-            readonly Masalar masa11 = new Masalar("masa11");
-            readonly Masalar masa12 = new Masalar("masa12");
-            readonly Masalar masa13 = new Masalar("masa13");
-            readonly Masalar masa14 = new Masalar("masa14");
-            readonly Masalar masa15 = new Masalar("masa15");
-            readonly Masalar masa16 = new Masalar("masa16");
-            readonly Masalar masa17 = new Masalar("masa17");
-            readonly Masalar masa18 = new Masalar("masa18");
-            readonly Masalar masa19 = new Masalar("masa19");
-            readonly Masalar masa20 = new Masalar("masa20");
-            readonly Masalar masa21 = new Masalar("masa21"); 
+            readonly string sqlbaglantisi = Properties.Resources.sqllink;
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
             readonly string myDosya = Resource1.masalogs;
@@ -49,15 +61,26 @@ namespace ketnetmanager
             public double kazanc;
 
 
+            public bool isAcik = false;
+
+
         public Form1()
         {
             InitializeComponent();
-            
+
+            pictureBox1.Tag = masa1;
+
+
+            comboBox2.DataSource = new BindingSource(fiyatTarifeleri, null);
+            comboBox2.DisplayMember = "Key";
+            comboBox2.ValueMember = "Value";
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -71,152 +94,25 @@ namespace ketnetmanager
 
         private void açKapatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool isAcik = false;   
-
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             ContextMenuStrip menu = (ContextMenuStrip)clickedItem.Owner;
             PictureBox pictureBox = (PictureBox)menu.SourceControl;
 
-            string tag = pictureBox.Tag.ToString();
-            switch (tag)
-                {
-                    case "masa1":
-                        label1.Text = tag;
-                        masa1.AcKapat(saatlikUcret);
-                        isAcik = masa1.IsAcik;
-                        kazanc += masa1.ToplamBorc;
-                    break;
-                    case "masa2":
-                        label1.Text = tag;
-                        masa2.AcKapat(saatlikUcret);
-                        isAcik = masa2.IsAcik;
-                        kazanc += masa2.ToplamBorc;
-                    break;
-                    case "masa3":
-                        label1.Text = tag;
-                        masa3.AcKapat(saatlikUcret);
-                        isAcik = masa3.IsAcik;
-                        kazanc += masa3.ToplamBorc;
-                    break;
-                    case "masa4":
-                        label1.Text = tag;
-                        masa4.AcKapat(saatlikUcret);
-                        isAcik = masa4.IsAcik;
-                        kazanc += masa4.ToplamBorc;
-                    break;
-                    case "masa5":
-                        label1.Text = tag;
-                        masa5.AcKapat(saatlikUcret);
-                        isAcik = masa5.IsAcik;
-                        kazanc += masa5.ToplamBorc;
-                    break;
-                    case "masa6":
-                        label1.Text = tag;
-                        masa6.AcKapat(saatlikUcret);
-                        isAcik = masa6.IsAcik;
-                        kazanc += masa6.ToplamBorc;
-                    break;
-                    case "masa7":
-                        label1.Text = tag;
-                        masa7.AcKapat(saatlikUcret);
-                        isAcik = masa7.IsAcik;
-                        kazanc += masa7.ToplamBorc;
-                    break;
-                    case "masa8":
-                        label1.Text = tag;
-                        masa8.AcKapat(saatlikUcret);
-                        isAcik = masa8.IsAcik;
-                        kazanc += masa8.ToplamBorc;
-                    break;
-                    case "masa9":
-                        label1.Text = tag;
-                        masa9.AcKapat(saatlikUcret);
-                        isAcik = masa9.IsAcik;
-                        kazanc += masa9.ToplamBorc;
-                    break;
-                    case "masa10":
-                        label1.Text = tag;
-                        masa10.AcKapat(saatlikUcret);
-                        isAcik = masa10.IsAcik;
-                        kazanc += masa10.ToplamBorc;
-                    break;
-                    case "masa11":
-                        label1.Text = tag;
-                        masa11.AcKapat(saatlikUcret);
-                        isAcik = masa11.IsAcik;
-                        kazanc += masa11.ToplamBorc;
-                    break;
-                    case "masa12":
-                        label1.Text = tag;
-                        masa12.AcKapat(saatlikUcret);
-                        isAcik = masa12.IsAcik;
-                        kazanc += masa12.ToplamBorc;
-                    break;
-                    case "masa13":
-                        label1.Text = tag;
-                        masa13.AcKapat(saatlikUcret);
-                        isAcik = masa13.IsAcik;
-                        kazanc += masa13.ToplamBorc;
-                    break;
-                    case "masa14":
-                        label1.Text = tag;
-                        masa14.AcKapat(saatlikUcret);
-                        isAcik = masa14.IsAcik;
-                        kazanc += masa14.ToplamBorc;
-                    break;
-                    case "masa15":
-                        label1.Text = tag;
-                        masa15.AcKapat(saatlikUcret);
-                        isAcik = masa15.IsAcik;
-                        kazanc += masa15.ToplamBorc;
-                    break;
-                    case "masa16":
-                        label1.Text = tag;
-                        masa16.AcKapat(saatlikUcret);
-                        isAcik = masa16.IsAcik;
-                        kazanc += masa16.ToplamBorc;
-                    break;
-                    case "masa17":
-                        label1.Text = tag;
-                        masa17.AcKapat(saatlikUcret);
-                        isAcik = masa17.IsAcik;
-                        kazanc += masa17.ToplamBorc;
-                    break;
-                    case "masa18":
-                        label1.Text = tag;
-                        masa18.AcKapat(saatlikUcret);
-                        isAcik = masa18.IsAcik;
-                        kazanc += masa18.ToplamBorc;
-                    break;
-                    case "masa19":
-                        label1.Text = tag;
-                        masa19.AcKapat(saatlikUcret);
-                        isAcik = masa19.IsAcik;
-                        kazanc += masa19.ToplamBorc;
-                    break;
-                    case "masa20":
-                        label1.Text = tag;
-                        masa20.AcKapat(saatlikUcret);
-                        isAcik = masa20.IsAcik;
-                        kazanc += masa20.ToplamBorc;
-                    break;
-                    case "masa21":
-                        label1.Text = tag;
-                        masa21.AcKapat(saatlikUcret);
-                        isAcik = masa21.IsAcik;
-                        kazanc += masa21.ToplamBorc;
-                    break;
-                }
+            Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+            label1.Text = pictureBox.Tag.ToString();
+            seciliMasa.AcKapat();
+            isAcik = seciliMasa.IsAcik;
+            kazanc += seciliMasa.ToplamBorc;
+            label27.Text = seciliMasa.getUcret().ToString();
 
             if (isAcik == true)
             {
-                pictureBox.Image = onmonitor;
+                pictureBox.Image = Resource1.onmonitor;
             } else
             {
-                pictureBox.Image = offmonitor;
+                pictureBox.Image = Resource1.offmonitor;
             }
-
-            label27.Text = Convert.ToString(Math.Round(kazanc,2));
 
         }
 
@@ -230,7 +126,41 @@ namespace ketnetmanager
                 }
             }
             acilacakPanel.Visible = true;
+            panel4.Visible = true;
         }
+        private Object myMasa(string tag)
+        {
+
+            switch (tag)
+            {
+                case "masa1": return masa1;
+                case "masa2": return masa2;
+                case "masa3": return masa3;
+                case "masa4": return masa4;
+                case "masa5": return masa5;
+                case "masa6": return masa6;
+                case "masa7": return masa7;
+                case "masa8": return masa8;
+                case "masa9": return masa9;
+                case "masa10": return masa10;
+                case "masa11": return masa11;
+                case "masa12": return masa12;
+                case "masa13": return masa13;
+                case "masa14": return masa14;
+                case "masa15": return masa15;
+                case "masa16": return masa16;
+                case "masa17": return masa17;
+                case "masa18": return masa18;
+                case "masa19": return masa19;
+                case "masa20": return masa20;
+                case "masa21": return masa21;
+                case "masa22": return masa22;
+                case "masa23": return masa23;
+                case "masa24": return masa24;
+                default: return null;
+            }
+        }
+
 
         private void LogGoster(string tarih1)
         {
@@ -262,6 +192,11 @@ namespace ketnetmanager
 
                 dataGridView1.DataSource = table;
             }
+
+            //comboBox1.DataSource = fiyatTarifeleri;
+            //comboBox1.DisplayMember = "Key";
+            //comboBox1.ValueMember = "Value";
+
         }
 
 
@@ -284,14 +219,13 @@ namespace ketnetmanager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LogGoster(null);
-
+            //LogGoster(null);
             SayfaDegistir(panel1);
         } 
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(textBox1.Text, out saatlikUcret))
+            /* if (double.TryParse(textBox1.Text, out saatlikUcret))
             {
                 saatlikUcret = Convert.ToDouble(saatlikUcret);
                 label25.Text = textBox1.Text;
@@ -299,7 +233,7 @@ namespace ketnetmanager
             } else
             {
                 MessageBox.Show("Lütfen geçerli bir ücret değeri girin.");
-            }
+            } */
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -310,6 +244,22 @@ namespace ketnetmanager
         private void button6_Click(object sender, EventArgs e)
         {
             SayfaDegistir(panel3);
+            string bugun = DateTime.Today.ToString("yyyy-MM-dd");
+
+            using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
+            {
+
+                baglanti.Open();
+                string selectQuery = "SELECT * FROM kafeterya";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, baglanti))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridView2.DataSource = dataTable;
+                }
+
+            }
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -398,7 +348,28 @@ namespace ketnetmanager
 
         private void button2_Click_2(object sender, EventArgs e)
         {
-            try
+            double tarifegirdi;
+            bool isTrue = false;
+            string degisecektarife = comboBox2.Text;
+
+            while (!isTrue)
+            {
+                string kullaniciGirdisi = Interaction.InputBox("Fiyat tarifesinin yeni fiyatını giriniz:", "");
+
+                if (double.TryParse(kullaniciGirdisi, out tarifegirdi))
+                {
+                    isTrue = true;
+                    MessageBox.Show(degisecektarife + " Fiyat tarifesi " + tarifegirdi+ "₺ olarak güncellendi.");
+                    fiyatTarifeleri[degisecektarife] = tarifegirdi;
+                    label25.Text = fiyatTarifeleri[degisecektarife].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Geçersiz değer! Lütfen geçerli bir değer giriniz.");
+                }
+            }
+
+            /* try
             {
                 saatlikUcret = Convert.ToInt32(textBox1.Text);
                 label25.Text = Convert.ToString(saatlikUcret);
@@ -411,7 +382,61 @@ namespace ketnetmanager
             catch (OverflowException)
             {
                 MessageBox.Show("Girilen sayı çok büyük veya çok küçük.", "Geçersiz Değer!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            } */
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form3 form = new Form3();
+            form.ShowDialog();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label25.Text = fiyatTarifeleri[comboBox2.Text].ToString();
+        }
+
+        private void normalTarifeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
+            ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
+            PictureBox pictureBox = (PictureBox)menu.SourceControl;
+
+            Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+            seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"]);
+        }
+
+        private void ortaSegmenTarifeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
+            ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
+            PictureBox pictureBox = (PictureBox)menu.SourceControl;
+
+            Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+            seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"]);
+        }
+
+        private void vIPTarifeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
+            ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
+            PictureBox pictureBox = (PictureBox)menu.SourceControl;
+
+            Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+            seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"]);
+
         }
     }
 }

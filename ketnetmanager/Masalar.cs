@@ -12,12 +12,13 @@ using System.Data.SqlClient;
 namespace ketnetmanager
 {
     
-    internal class Masalar
+    internal class Masalar 
     {
-        readonly string connectionString = Properties.Resources.sqllink;
+        readonly string sqlbaglantisi = Properties.Resources.sqllink;
 
         public string myDosya = Resource1.masalogs;
 
+        public double saatlikUcret { get; set; }
         public string MasaTag { get; set; }
         public string GecenSure { get; set; }
         public double ToplamBorc { get; set; }
@@ -25,13 +26,13 @@ namespace ketnetmanager
 
         private Stopwatch Kronometre = new Stopwatch();
 
-        public Masalar(string tag)
+        public Masalar(string tag,double saatlikUcret)
         {
-
             this.MasaTag = tag;
+            this.saatlikUcret = saatlikUcret;
         }
 
-        public virtual void AcKapat(double SaatlikUcret)
+        public virtual void AcKapat()
         {
             bool isAcik = this.IsAcik;
 
@@ -41,16 +42,25 @@ namespace ketnetmanager
             }
             else
             {
-                Kapat(SaatlikUcret);
+                Kapat(this.saatlikUcret);
             }
 
             LogKaydet();
         }
 
+        public void setUcret(double saatlikUcret)
+        {
+            this.saatlikUcret = saatlikUcret;
+        }
+        public double getUcret()
+        {
+            return this.saatlikUcret;
+        }
+
         public virtual void Kapat(double SaatlikUcret)
         {
             this.IsAcik = false;
-            this.ToplamBorc += SureBitir() * (SaatlikUcret / 60) ;
+            this.ToplamBorc += SureBitir() * (getUcret() / 60) ;
 
         }
         public virtual void Ac()
@@ -79,7 +89,7 @@ namespace ketnetmanager
         public virtual void LogKaydet()
         {
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
             {
                 connection.Open();
                 string insertQuery = @"
