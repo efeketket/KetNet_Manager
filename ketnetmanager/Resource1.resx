@@ -139,6 +139,9 @@
   <data name="hidepasswordimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\hidepasswordimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pclistminiocin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pclistminiocin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="masalogs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\masalogs.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -148,6 +151,9 @@
   <data name="loginbgbar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\loginbgbar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pcmenuicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pcmenuicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="offmonitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\offmonitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +162,9 @@
   </data>
   <data name="sifrepanelicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\sifrepanelicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\noimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hidepasswordtransph" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\hidepasswordtransph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,7 +187,10 @@
   <data name="transpharanebglock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\transpharanebglock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="noimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\noimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pclistminiocin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pclistminiocin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon30x30pc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon30x30pc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

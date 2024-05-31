@@ -187,5 +187,17 @@
   <ItemGroup>
     <None Include="Resources\noimage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pcmenuicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pclistminiocin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pclistminiocin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon30x30pc.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

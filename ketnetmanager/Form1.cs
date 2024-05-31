@@ -70,9 +70,6 @@ namespace ketnetmanager
         {
             InitializeComponent();
 
-            pictureBox1.Tag = masa1;
-
-
             comboBox2.DataSource = new BindingSource(fiyatTarifeleri, null);
             comboBox2.DisplayMember = "Key";
             comboBox2.ValueMember = "Value";
@@ -243,7 +240,7 @@ namespace ketnetmanager
             comboBox1.SelectedIndex = 5;
             label25.Text = fiyatTarifeleri[comboBox2.Text].ToString();
 
-            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BackgroundColor = Color.Beige;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
             dataGridView1.DefaultCellStyle.Font = new Font("Arial", 9);
@@ -620,6 +617,21 @@ namespace ketnetmanager
             Form5 form = new Form5("");
             form.ShowDialog();
             KazancEkle(form.totalFiyat);
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

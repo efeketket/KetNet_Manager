@@ -153,6 +153,16 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icon30x30pc {
+            get {
+                object obj = ResourceManager.GetObject("icon30x30pc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap kullanicipanelicon {
             get {
                 object obj = ResourceManager.GetObject("kullanicipanelicon", resourceCulture);
@@ -237,6 +247,36 @@ namespace ketnetmanager {
         public static System.Drawing.Bitmap onmonitor {
             get {
                 object obj = ResourceManager.GetObject("onmonitor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pclistminiocin {
+            get {
+                object obj = ResourceManager.GetObject("pclistminiocin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pclistminiocin1 {
+            get {
+                object obj = ResourceManager.GetObject("pclistminiocin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pcmenuicon {
+            get {
+                object obj = ResourceManager.GetObject("pcmenuicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
