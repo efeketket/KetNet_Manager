@@ -36,7 +36,6 @@
             this.açKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masaBilgileriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ürünEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ürünSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masaBilgileriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.normalTarifeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ortaSegmenTarifeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +43,7 @@
             this.process1 = new System.Diagnostics.Process();
             this.button7 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -119,6 +119,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -195,8 +196,7 @@
             // masaBilgileriToolStripMenuItem
             // 
             this.masaBilgileriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ürünEkleToolStripMenuItem,
-            this.ürünSilToolStripMenuItem});
+            this.ürünEkleToolStripMenuItem});
             this.masaBilgileriToolStripMenuItem.Name = "masaBilgileriToolStripMenuItem";
             this.masaBilgileriToolStripMenuItem.Size = new System.Drawing.Size(183, 36);
             this.masaBilgileriToolStripMenuItem.Text = "Yönet";
@@ -205,14 +205,9 @@
             // ürünEkleToolStripMenuItem
             // 
             this.ürünEkleToolStripMenuItem.Name = "ürünEkleToolStripMenuItem";
-            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(219, 40);
-            this.ürünEkleToolStripMenuItem.Text = "Ürün Ekle";
-            // 
-            // ürünSilToolStripMenuItem
-            // 
-            this.ürünSilToolStripMenuItem.Name = "ürünSilToolStripMenuItem";
-            this.ürünSilToolStripMenuItem.Size = new System.Drawing.Size(219, 40);
-            this.ürünSilToolStripMenuItem.Text = "Ürün Sil";
+            this.ürünEkleToolStripMenuItem.Size = new System.Drawing.Size(211, 40);
+            this.ürünEkleToolStripMenuItem.Text = "Ürün Sat";
+            this.ürünEkleToolStripMenuItem.Click += new System.EventHandler(this.ürünEkleToolStripMenuItem_Click);
             // 
             // masaBilgileriToolStripMenuItem1
             // 
@@ -268,6 +263,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.dataGridView2);
@@ -277,6 +273,16 @@
             this.panel3.Size = new System.Drawing.Size(1153, 805);
             this.panel3.TabIndex = 37;
             this.panel3.Tag = "mainpanel";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(963, 424);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(134, 36);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Ürün Sat";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // panel6
             // 
@@ -335,6 +341,7 @@
             this.button9.TabIndex = 3;
             this.button9.Text = "Sil";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
             // 
             // button5
             // 
@@ -358,16 +365,19 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(29, 33);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 72;
             this.dataGridView2.RowTemplate.Height = 31;
             this.dataGridView2.Size = new System.Drawing.Size(1073, 375);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
+            this.dataGridView2.Sorted += new System.EventHandler(this.dataGridView2_Sorted);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(968, 424);
+            this.button4.Location = new System.Drawing.Point(809, 424);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(134, 36);
             this.button4.TabIndex = 0;
@@ -1121,10 +1131,10 @@
             this.ClientSize = new System.Drawing.Size(1482, 887);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Name = "Form1";
             this.Text = "Ketnet Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1180,7 +1190,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ToolStripMenuItem ürünEkleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ürünSilToolStripMenuItem;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button9;
@@ -1260,6 +1269,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button8;
     }
 }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
@@ -59,7 +60,6 @@ namespace ketnetmanager
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
             readonly string myDosya = Resource1.masalogs;
             
-            public double saatlikUcret;
             public double kazanc;
 
 
@@ -105,8 +105,8 @@ namespace ketnetmanager
             label1.Text = pictureBox.Tag.ToString();
             seciliMasa.AcKapat();
             isAcik = seciliMasa.IsAcik;
-            kazanc += seciliMasa.ToplamBorc;
-            label27.Text = seciliMasa.getUcret().ToString();
+            KazancEkle(seciliMasa.ToplamBorc);
+            label27.Text = kazanc.ToString();
 
             if (isAcik == true)
             {
@@ -116,6 +116,11 @@ namespace ketnetmanager
                 pictureBox.Image = Resource1.offmonitor;
             }
 
+        }
+
+        private void KazancEkle(double gelenPara)
+        {
+            this.kazanc += Math.Round(gelenPara,2);
         }
 
         private void SayfaDegistir(Panel acilacakPanel)
@@ -271,25 +276,59 @@ namespace ketnetmanager
 
         private void button6_Click(object sender, EventArgs e)
         {
-            SayfaDegistir(panel3); 
+            kafeteryaGuncelle();
+            SayfaDegistir(panel3);
+        }
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView2.DataSource != null && dataGridView2.Rows.Count > 0)
+                {
+                    string searchText = textBox1.Text;
+                    (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"urunIsim LIKE '{searchText}%'";
+                }
+                else
+                {
+                    MessageBox.Show("Ürün bulunamadı", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ürün bulunamadı", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ürün bulunamadı", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void kafeteryaGuncelle()
+        {
+
+
             using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
             {
-                    string komut = "SELECT urunIsim, urunFiyat, urunAciklama, urunImg FROM kafeterya";
+                string komut = "SELECT urunIsim, urunFiyat, urunAciklama, urunImg,id FROM kafeterya";
 
                 SqlCommand sqlCommand = new SqlCommand(komut, baglanti);
 
                 SqlDataAdapter myItems = new SqlDataAdapter(sqlCommand);
                 DataTable table = new DataTable();
                 myItems.Fill(table);
-
                 dataGridView2.DataSource = table;
             }
             dataGridView2.Columns["urunIsim"].HeaderText = "Ürün İsmi";
             dataGridView2.Columns["urunFiyat"].HeaderText = "Fiyat";
             dataGridView2.Columns["urunAciklama"].HeaderText = "Açıklama";
-            dataGridView2.Columns["urunImg"].HeaderText = "Ürün Resmi";
 
-            dataGridView2.Columns["urunFiyat"].Width = 80;
+            dataGridView2.Columns["id"].HeaderText = "ID";
+            dataGridView2.AllowUserToOrderColumns = false;
+
+            dataGridView2.Columns["urunFiyat"].Width = 40;
+            dataGridView2.Columns["id"].Width = 25;
 
             dataGridView2.BackgroundColor = Color.White;
             dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
@@ -302,11 +341,8 @@ namespace ketnetmanager
             dataGridView2.AllowUserToOrderColumns = true;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.RowHeadersVisible = false;
-        }
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
-        {
-            string searchText = textBox1.Text;
-            (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"urunIsim LIKE '{searchText}%'";
+
+
         }
 
 
@@ -435,12 +471,14 @@ namespace ketnetmanager
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Form3 form = new Form3();
             form.ShowDialog();
+            kafeteryaGuncelle();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -516,7 +554,72 @@ namespace ketnetmanager
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //form4 acilacak
+            Form4 form = new Form4(Convert.ToInt32(dataGridView2.CurrentRow.Cells["id"].Value));
+            form.ShowDialog();
+            kafeteryaGuncelle();
+        }
+
+        private void button9_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0) 
+            {
+                DialogResult result = MessageBox.Show("Seçili satırı silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    int selectedRowIndex = dataGridView2.SelectedRows[0].Index;
+
+                    using (SqlConnection connection = new SqlConnection(sqlbaglantisi)) 
+                    {
+                        connection.Open();
+
+                        int idToDelete = Convert.ToInt32(dataGridView2.Rows[selectedRowIndex].Cells["id"].Value); 
+
+                        string deleteQuery = "DELETE FROM adminLogs WHERE id = @id"; 
+                        using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@id", idToDelete);
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    dataGridView2.Rows.RemoveAt(selectedRowIndex);
+
+                    MessageBox.Show("Ürün sistemden başarıyla silindi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen silinecek ürün seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dataGridView2_Sorted(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
+            ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
+            PictureBox pictureBox = (PictureBox)menu.SourceControl;
+
+            Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+            seciliMasa.UrunSat();
+        }
+
+        private void ürünSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            Form5 form = new Form5("");
+            form.ShowDialog();
+            KazancEkle(form.totalFiyat);
         }
     }
 }

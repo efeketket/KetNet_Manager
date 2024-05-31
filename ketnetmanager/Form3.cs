@@ -46,32 +46,53 @@ namespace ketnetmanager
 
         private void button2_Click(object sender, EventArgs e)
         {
+                if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox3.Text))
+                {
+                MessageBox.Show("Girilen ürünn bir fiyata ve isme sahip olmalı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+                }
+
+                if (double.TryParse(textBox3.Text, out double fiyat))
+                {
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen geçerli bir fiyat girin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
 
             using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
-            {
-                connection.Open();
-                string insertQuery = @"
+                {
+                    connection.Open();
+                    string insertQuery = @"
                                      INSERT INTO kafeterya (urunImg, urunIsim, urunFiyat, urunAciklama)
                                      VALUES (@img, @isim, @fiyat, @aciklama)";
 
-                using (SqlCommand command = new SqlCommand(insertQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@img", görselEkle());
-                    command.Parameters.AddWithValue("@isim", textBox1.Text);
-                    command.Parameters.AddWithValue("@fiyat", Convert.ToInt32(textBox3.Text));
-                    if (string.IsNullOrEmpty(textBox2.Text))
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
-                        command.Parameters.AddWithValue("@aciklama", DBNull.Value);
+                        command.Parameters.AddWithValue("@img", görselEkle());
+                        command.Parameters.AddWithValue("@isim", textBox1.Text);
+                        command.Parameters.AddWithValue("@fiyat", Convert.ToDouble(textBox3.Text));
+                        if (string.IsNullOrEmpty(textBox2.Text))
+                        {
+                            command.Parameters.AddWithValue("@aciklama", DBNull.Value);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@aciklama", textBox2.Text);
+                        }
+                        command.ExecuteNonQuery();
                     }
-                    else
-                    {
-                        command.Parameters.AddWithValue("@aciklama", textBox2.Text);
-                    }
-
-
-                    command.ExecuteNonQuery();
                 }
-            }
+
+                MessageBox.Show("Ürün başarıyla veritabanına eklendi.", "Başarılı", MessageBoxButtons.OK);
+
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                pictureBox1.Image = Resource1.noimage;
+
         }
 
         private byte[] görselEkle()

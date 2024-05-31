@@ -47,7 +47,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(99, 318);
+            this.button1.Location = new System.Drawing.Point(94, 318);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(300, 42);
             this.button1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.pictureBox1.ErrorImage = global::ketnetmanager.Resource1.noimage;
             this.pictureBox1.Image = global::ketnetmanager.Resource1.noimage;
-            this.pictureBox1.Location = new System.Drawing.Point(99, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(94, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,7 +68,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(41, 434);
+            this.textBox1.Location = new System.Drawing.Point(36, 434);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(432, 29);
             this.textBox1.TabIndex = 2;
@@ -76,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 406);
+            this.label1.Location = new System.Drawing.Point(43, 406);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 25);
             this.label1.TabIndex = 3;
@@ -85,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 481);
+            this.label2.Location = new System.Drawing.Point(43, 481);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 25);
             this.label2.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(43, 509);
+            this.textBox2.Location = new System.Drawing.Point(38, 509);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(432, 136);
@@ -102,7 +102,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 670);
+            this.label3.Location = new System.Drawing.Point(43, 670);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 25);
             this.label3.TabIndex = 6;
@@ -110,18 +110,18 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(42, 699);
+            this.textBox3.Location = new System.Drawing.Point(37, 699);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(431, 29);
             this.textBox3.TabIndex = 7;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(43, 760);
+            this.button2.Location = new System.Drawing.Point(38, 760);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(431, 49);
             this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
+            this.button2.Text = "Ürünü Kaydet";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -140,7 +140,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Ürün Ekle";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

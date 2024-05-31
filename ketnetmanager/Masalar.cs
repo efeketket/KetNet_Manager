@@ -65,12 +65,14 @@ namespace ketnetmanager
         }
         public virtual void Ac()
         {
+            this.ToplamBorc = 0;
             this.IsAcik = true;
             SureBaslat();
         }
 
         public virtual void SureBaslat()
         {
+            Kronometre.Reset();
             this.GecenSure = "";
             this.Kronometre.Start();
         }
@@ -108,6 +110,15 @@ namespace ketnetmanager
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public void UrunSat()
+        {
+            Form5 form = new Form5(this.MasaTag);
+            form.ShowDialog();
+            MessageBox.Show(form.selectedFiyat.ToString(), "aa", MessageBoxButtons.OK);
+            ToplamBorc += form.totalFiyat;
+
         }
 
         //eski method dosyaya işliyor
