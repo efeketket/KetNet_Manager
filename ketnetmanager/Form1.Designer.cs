@@ -44,18 +44,17 @@
             this.process1 = new System.Diagnostics.Process();
             this.button7 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -110,12 +109,21 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
@@ -143,16 +151,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(30, 152);
+            this.button6.Location = new System.Drawing.Point(30, 159);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(150, 50);
             this.button6.TabIndex = 32;
-            this.button6.Text = "Kafeterya";
+            this.button6.Text = "Satış Ürünleri";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -162,7 +171,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 50);
             this.button1.TabIndex = 30;
-            this.button1.Text = "Log Dosyası";
+            this.button1.Text = "Log Kayıtları";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -174,12 +183,12 @@
             this.masaBilgileriToolStripMenuItem,
             this.masaBilgileriToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 150);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 112);
             // 
             // açKapatToolStripMenuItem
             // 
             this.açKapatToolStripMenuItem.Name = "açKapatToolStripMenuItem";
-            this.açKapatToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.açKapatToolStripMenuItem.Size = new System.Drawing.Size(183, 36);
             this.açKapatToolStripMenuItem.Text = "Aç / Kapat";
             this.açKapatToolStripMenuItem.Click += new System.EventHandler(this.açKapatToolStripMenuItem_Click);
             // 
@@ -189,7 +198,7 @@
             this.ürünEkleToolStripMenuItem,
             this.ürünSilToolStripMenuItem});
             this.masaBilgileriToolStripMenuItem.Name = "masaBilgileriToolStripMenuItem";
-            this.masaBilgileriToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.masaBilgileriToolStripMenuItem.Size = new System.Drawing.Size(183, 36);
             this.masaBilgileriToolStripMenuItem.Text = "Yönet";
             this.masaBilgileriToolStripMenuItem.Click += new System.EventHandler(this.masaBilgileriToolStripMenuItem_Click);
             // 
@@ -212,27 +221,27 @@
             this.ortaSegmenTarifeToolStripMenuItem,
             this.vIPTarifeToolStripMenuItem});
             this.masaBilgileriToolStripMenuItem1.Name = "masaBilgileriToolStripMenuItem1";
-            this.masaBilgileriToolStripMenuItem1.Size = new System.Drawing.Size(270, 36);
+            this.masaBilgileriToolStripMenuItem1.Size = new System.Drawing.Size(183, 36);
             this.masaBilgileriToolStripMenuItem1.Text = "Tarife Seç";
             // 
             // normalTarifeToolStripMenuItem
             // 
             this.normalTarifeToolStripMenuItem.Name = "normalTarifeToolStripMenuItem";
-            this.normalTarifeToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.normalTarifeToolStripMenuItem.Size = new System.Drawing.Size(309, 40);
             this.normalTarifeToolStripMenuItem.Text = "Normal Tarife";
             this.normalTarifeToolStripMenuItem.Click += new System.EventHandler(this.normalTarifeToolStripMenuItem_Click);
             // 
             // ortaSegmenTarifeToolStripMenuItem
             // 
             this.ortaSegmenTarifeToolStripMenuItem.Name = "ortaSegmenTarifeToolStripMenuItem";
-            this.ortaSegmenTarifeToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.ortaSegmenTarifeToolStripMenuItem.Size = new System.Drawing.Size(309, 40);
             this.ortaSegmenTarifeToolStripMenuItem.Text = "Orta Segmen Tarife";
             this.ortaSegmenTarifeToolStripMenuItem.Click += new System.EventHandler(this.ortaSegmenTarifeToolStripMenuItem_Click);
             // 
             // vIPTarifeToolStripMenuItem
             // 
             this.vIPTarifeToolStripMenuItem.Name = "vIPTarifeToolStripMenuItem";
-            this.vIPTarifeToolStripMenuItem.Size = new System.Drawing.Size(315, 40);
+            this.vIPTarifeToolStripMenuItem.Size = new System.Drawing.Size(309, 40);
             this.vIPTarifeToolStripMenuItem.Text = "V.I.P. Tarife";
             this.vIPTarifeToolStripMenuItem.Click += new System.EventHandler(this.vIPTarifeToolStripMenuItem_Click);
             // 
@@ -248,9 +257,9 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(30, 278);
+            this.button7.Location = new System.Drawing.Point(12, 278);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(150, 50);
+            this.button7.Size = new System.Drawing.Size(248, 95);
             this.button7.TabIndex = 35;
             this.button7.Text = "Bilgisayarlar";
             this.button7.UseVisualStyleBackColor = true;
@@ -259,29 +268,68 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Controls.Add(this.button9);
-            this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Location = new System.Drawing.Point(313, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1153, 805);
             this.panel3.TabIndex = 37;
+            this.panel3.Tag = "mainpanel";
             // 
-            // dataGridView2
+            // panel6
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(44, 33);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 72;
-            this.dataGridView2.RowTemplate.Height = 31;
-            this.dataGridView2.Size = new System.Drawing.Size(1058, 406);
-            this.dataGridView2.TabIndex = 4;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.panel6.Controls.Add(this.label32);
+            this.panel6.Controls.Add(this.label31);
+            this.panel6.Controls.Add(this.label30);
+            this.panel6.Controls.Add(this.pictureBox25);
+            this.panel6.Controls.Add(this.button9);
+            this.panel6.Controls.Add(this.button5);
+            this.panel6.Location = new System.Drawing.Point(29, 510);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1073, 256);
+            this.panel6.TabIndex = 7;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(248, 146);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(75, 25);
+            this.label32.TabIndex = 8;
+            this.label32.Text = "label32";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(248, 70);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(75, 25);
+            this.label31.TabIndex = 7;
+            this.label31.Text = "label31";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(248, 26);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(75, 25);
+            this.label30.TabIndex = 6;
+            this.label30.Text = "label30";
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.Location = new System.Drawing.Point(15, 26);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(210, 210);
+            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox25.TabIndex = 5;
+            this.pictureBox25.TabStop = false;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(44, 716);
+            this.button9.Location = new System.Drawing.Point(780, 200);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(133, 36);
             this.button9.TabIndex = 3;
@@ -290,16 +338,36 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(186, 716);
+            this.button5.Location = new System.Drawing.Point(919, 200);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(133, 36);
             this.button5.TabIndex = 1;
             this.button5.Text = "Düzenle";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(29, 424);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 29);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(29, 33);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 72;
+            this.dataGridView2.RowTemplate.Height = 31;
+            this.dataGridView2.Size = new System.Drawing.Size(1073, 375);
+            this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(968, 710);
+            this.button4.Location = new System.Drawing.Point(968, 424);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(134, 36);
             this.button4.TabIndex = 0;
@@ -309,86 +377,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(30, 334);
+            this.button3.Location = new System.Drawing.Point(30, 445);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 50);
+            this.button3.Size = new System.Drawing.Size(263, 88);
             this.button3.TabIndex = 38;
-            this.button3.Text = "Ödeme Al";
+            this.button3.Text = "Kasa";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(977, 694);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 36);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "Güncelle";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.label23);
-            this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Location = new System.Drawing.Point(29, 593);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(297, 190);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ücret Tarifeleri";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Normal",
-            "V.I.P.",
-            "Ust Segment"});
-            this.comboBox2.Location = new System.Drawing.Point(15, 75);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(179, 32);
-            this.comboBox2.TabIndex = 7;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(223, 38);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(23, 25);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "0";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(252, 38);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(23, 25);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "₺";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(10, 38);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(122, 25);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Saatlik Ücret";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(15, 132);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Güncelle";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_2);
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView1
             // 
@@ -411,10 +406,11 @@
             "Son 1 Hafta",
             "Son 1 Ay",
             "Son 3 Ay",
-            "Son Yıl"});
-            this.comboBox1.Location = new System.Drawing.Point(924, 593);
+            "Son Yıl",
+            "Tümü"});
+            this.comboBox1.Location = new System.Drawing.Point(948, 593);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 32);
+            this.comboBox1.Size = new System.Drawing.Size(179, 32);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -474,33 +470,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1153, 805);
             this.panel2.TabIndex = 36;
+            this.panel2.Tag = "mainpanel";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(960, 733);
+            this.label26.Location = new System.Drawing.Point(116, 365);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 25);
-            this.label26.TabIndex = 82;
-            this.label26.Text = "Masa 20";
+            this.label26.Size = new System.Drawing.Size(77, 25);
+            this.label26.TabIndex = 85;
+            this.label26.Text = "Masa 7";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(787, 733);
+            this.label28.Location = new System.Drawing.Point(960, 733);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(88, 25);
             this.label28.TabIndex = 83;
-            this.label28.Text = "Masa 19";
+            this.label28.Text = "Masa 24";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(617, 733);
+            this.label29.Location = new System.Drawing.Point(787, 733);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(88, 25);
             this.label29.TabIndex = 84;
-            this.label29.Text = "Masa 18";
+            this.label29.Text = "Masa 23";
             // 
             // pictureBox22
             // 
@@ -512,7 +509,7 @@
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox22.TabIndex = 81;
             this.pictureBox22.TabStop = false;
-            this.pictureBox22.Tag = "masa18";
+            this.pictureBox22.Tag = "masa22";
             // 
             // pictureBox23
             // 
@@ -524,7 +521,7 @@
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox23.TabIndex = 80;
             this.pictureBox23.TabStop = false;
-            this.pictureBox23.Tag = "masa19";
+            this.pictureBox23.Tag = "masa23";
             // 
             // pictureBox24
             // 
@@ -536,7 +533,7 @@
             this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox24.TabIndex = 79;
             this.pictureBox24.TabStop = false;
-            this.pictureBox24.Tag = "masa20";
+            this.pictureBox24.Tag = "masa24";
             // 
             // label27
             // 
@@ -550,11 +547,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(449, 733);
+            this.label16.Location = new System.Drawing.Point(617, 733);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(88, 25);
             this.label16.TabIndex = 67;
-            this.label16.Text = "Masa 21";
+            this.label16.Text = "Masa 22";
             // 
             // label1
             // 
@@ -568,43 +565,43 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(279, 733);
+            this.label9.Location = new System.Drawing.Point(446, 733);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 25);
             this.label9.TabIndex = 66;
-            this.label9.Text = "Masa 14";
+            this.label9.Text = "Masa 21";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(960, 546);
+            this.label17.Location = new System.Drawing.Point(105, 733);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(88, 25);
             this.label17.TabIndex = 69;
-            this.label17.Text = "Masa 20";
+            this.label17.Text = "Masa 19";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(120, 733);
+            this.label8.Location = new System.Drawing.Point(277, 733);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 25);
+            this.label8.Size = new System.Drawing.Size(88, 25);
             this.label8.TabIndex = 60;
-            this.label8.Text = "Masa 7";
+            this.label8.Text = "Masa 20";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(787, 546);
+            this.label18.Location = new System.Drawing.Point(960, 546);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(88, 25);
             this.label18.TabIndex = 71;
-            this.label18.Text = "Masa 19";
+            this.label18.Text = "Masa 18";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(960, 365);
+            this.label10.Location = new System.Drawing.Point(105, 546);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 25);
             this.label10.TabIndex = 68;
@@ -613,20 +610,20 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(617, 546);
+            this.label19.Location = new System.Drawing.Point(787, 546);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(88, 25);
             this.label19.TabIndex = 73;
-            this.label19.Text = "Masa 18";
+            this.label19.Text = "Masa 17";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(446, 546);
+            this.label20.Location = new System.Drawing.Point(617, 546);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(88, 25);
             this.label20.TabIndex = 74;
-            this.label20.Text = "Masa 17";
+            this.label20.Text = "Masa 16";
             // 
             // label7
             // 
@@ -640,16 +637,16 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(277, 546);
+            this.label21.Location = new System.Drawing.Point(446, 546);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(88, 25);
             this.label21.TabIndex = 76;
-            this.label21.Text = "Masa 16";
+            this.label21.Text = "Masa 15";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(787, 365);
+            this.label11.Location = new System.Drawing.Point(960, 365);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 25);
             this.label11.TabIndex = 70;
@@ -658,11 +655,11 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(105, 546);
+            this.label22.Location = new System.Drawing.Point(277, 546);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(88, 25);
             this.label22.TabIndex = 64;
-            this.label22.Text = "Masa 15";
+            this.label22.Text = "Masa 14";
             // 
             // label6
             // 
@@ -676,7 +673,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(617, 365);
+            this.label12.Location = new System.Drawing.Point(787, 365);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(88, 25);
             this.label12.TabIndex = 72;
@@ -685,7 +682,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(446, 365);
+            this.label13.Location = new System.Drawing.Point(617, 365);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(88, 25);
             this.label13.TabIndex = 75;
@@ -703,7 +700,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(277, 365);
+            this.label14.Location = new System.Drawing.Point(457, 365);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(77, 25);
             this.label14.TabIndex = 77;
@@ -712,7 +709,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(457, 186);
+            this.label4.Location = new System.Drawing.Point(457, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 25);
             this.label4.TabIndex = 59;
@@ -721,7 +718,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(105, 365);
+            this.label15.Location = new System.Drawing.Point(288, 365);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(77, 25);
             this.label15.TabIndex = 65;
@@ -767,7 +764,7 @@
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox20.TabIndex = 55;
             this.pictureBox20.TabStop = false;
-            this.pictureBox20.Tag = "masa14";
+            this.pictureBox20.Tag = "masa20";
             // 
             // pictureBox21
             // 
@@ -779,7 +776,7 @@
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox21.TabIndex = 54;
             this.pictureBox21.TabStop = false;
-            this.pictureBox21.Tag = "masa7";
+            this.pictureBox21.Tag = "masa19";
             // 
             // pictureBox13
             // 
@@ -791,7 +788,7 @@
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 53;
             this.pictureBox13.TabStop = false;
-            this.pictureBox13.Tag = "masa15";
+            this.pictureBox13.Tag = "masa13";
             // 
             // pictureBox14
             // 
@@ -803,7 +800,7 @@
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox14.TabIndex = 52;
             this.pictureBox14.TabStop = false;
-            this.pictureBox14.Tag = "masa16";
+            this.pictureBox14.Tag = "masa14";
             // 
             // pictureBox15
             // 
@@ -815,7 +812,7 @@
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox15.TabIndex = 51;
             this.pictureBox15.TabStop = false;
-            this.pictureBox15.Tag = "masa17";
+            this.pictureBox15.Tag = "masa15";
             // 
             // pictureBox16
             // 
@@ -827,7 +824,7 @@
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 50;
             this.pictureBox16.TabStop = false;
-            this.pictureBox16.Tag = "masa18";
+            this.pictureBox16.Tag = "masa16";
             // 
             // pictureBox17
             // 
@@ -839,7 +836,7 @@
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox17.TabIndex = 49;
             this.pictureBox17.TabStop = false;
-            this.pictureBox17.Tag = "masa19";
+            this.pictureBox17.Tag = "masa17";
             // 
             // pictureBox18
             // 
@@ -851,7 +848,7 @@
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox18.TabIndex = 48;
             this.pictureBox18.TabStop = false;
-            this.pictureBox18.Tag = "masa20";
+            this.pictureBox18.Tag = "masa18";
             // 
             // pictureBox7
             // 
@@ -863,7 +860,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 47;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Tag = "masa8";
+            this.pictureBox7.Tag = "masa7";
             // 
             // pictureBox8
             // 
@@ -875,7 +872,7 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 46;
             this.pictureBox8.TabStop = false;
-            this.pictureBox8.Tag = "masa9";
+            this.pictureBox8.Tag = "masa8";
             // 
             // pictureBox9
             // 
@@ -887,7 +884,7 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 45;
             this.pictureBox9.TabStop = false;
-            this.pictureBox9.Tag = "masa10";
+            this.pictureBox9.Tag = "masa9";
             // 
             // pictureBox10
             // 
@@ -935,7 +932,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 41;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Tag = "masa11";
+            this.pictureBox4.Tag = "masa10";
             // 
             // pictureBox5
             // 
@@ -947,7 +944,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 40;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Tag = "masa12";
+            this.pictureBox5.Tag = "masa11";
             // 
             // pictureBox6
             // 
@@ -959,7 +956,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 39;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Tag = "masa13";
+            this.pictureBox6.Tag = "masa12";
             // 
             // pictureBox3
             // 
@@ -999,15 +996,95 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBox3);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.button10);
             this.panel1.Location = new System.Drawing.Point(313, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1153, 805);
             this.panel1.TabIndex = 36;
+            this.panel1.Tag = "mainpanel";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Masa Kayıtları",
+            "Admin Kayıtları",
+            "Ürün Satış Kayıtları"});
+            this.comboBox3.Location = new System.Drawing.Point(747, 593);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(179, 32);
+            this.comboBox3.TabIndex = 12;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Location = new System.Drawing.Point(29, 593);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(297, 190);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ücret Tarifeleri";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(252, 38);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(23, 25);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "₺";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Normal",
+            "V.I.P.",
+            "Ust Segment"});
+            this.comboBox2.Location = new System.Drawing.Point(15, 75);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(179, 32);
+            this.comboBox2.TabIndex = 7;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(212, 38);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(23, 25);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 38);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(122, 25);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Saatlik Ücret";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(15, 132);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 41);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Güncelle";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // panel4
             // 
@@ -1029,6 +1106,14 @@
             this.panel5.Size = new System.Drawing.Size(1545, 109);
             this.panel5.TabIndex = 40;
             // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(313, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1153, 805);
+            this.panel7.TabIndex = 41;
+            this.panel7.Tag = "mainpanel";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -1036,17 +1121,20 @@
             this.ClientSize = new System.Drawing.Size(1482, 887);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.Text = "Ketnet Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1075,6 +1163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1093,19 +1183,12 @@
         private System.Windows.Forms.ToolStripMenuItem ürünSilToolStripMenuItem;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label16;
@@ -1152,17 +1235,31 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ToolStripMenuItem normalTarifeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ortaSegmenTarifeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vIPTarifeToolStripMenuItem;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.PictureBox pictureBox25;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
     }
 }
 

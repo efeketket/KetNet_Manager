@@ -60,6 +60,28 @@ namespace ketnetmanager
             }
         }
 
+        private void kullaniciLogIsle(string kullaniciAdi, string durum)
+        {
+            using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
+            {
+                baglanti.Open();
+                string uniqueId = Guid.NewGuid().ToString();
+
+                string insertQuery = @"
+            INSERT INTO adminLogs (Tarih, Saat, Durum, kullaniciIsim)
+            VALUES (@tarih, @saat, @durum, @kullaniciIsim)";
+
+                using (SqlCommand command = new SqlCommand(insertQuery, baglanti))
+                {
+                    command.Parameters.AddWithValue("@tarih", DateTime.Today.ToShortDateString());
+                    command.Parameters.AddWithValue("@saat", DateTime.Now.ToString("HH:mm:ss"));
+                    command.Parameters.AddWithValue("@durum", durum);
+                    command.Parameters.AddWithValue("@kullaniciIsim", kullaniciAdi);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -98,7 +120,7 @@ namespace ketnetmanager
 
             if (kullaniciKontrol(textBox2.Text, textBox1.Text) == true) // Şifreyi hashleyerek gönderin
             {
-                
+                kullaniciLogIsle(textBox2.Text, "Giriş Yapıldı.");
                 Form1 form = new Form1();
                 this.Hide();
                 form.ShowDialog();
@@ -108,6 +130,7 @@ namespace ketnetmanager
             else
             {
                 MessageBox.Show("Başarısız Giriş");
+                kullaniciLogIsle(textBox2.Text, "Başarısız");
             }
         }
 

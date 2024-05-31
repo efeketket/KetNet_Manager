@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,7 +46,7 @@ namespace ketnetmanager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
             using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
             {
                 connection.Open();
@@ -75,9 +76,24 @@ namespace ketnetmanager
 
         private byte[] görselEkle()
         {
-            MemoryStream stream = new MemoryStream();
-            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
-            return stream.GetBuffer();
-        } 
+            Image myGörsel = pictureBox1.Image;
+            using (Bitmap resizedImage = new Bitmap(100, 100))
+            {
+                using (Graphics g = Graphics.FromImage(resizedImage))
+                {
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic; 
+                    g.DrawImage(myGörsel, 0, 0, 100, 100);
+                }
+
+                // Save the resized image to a MemoryStream
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    resizedImage.Save(stream, myGörsel.RawFormat);
+
+                    return stream.ToArray();
+                }
+
+            }
+        }
     }
 }

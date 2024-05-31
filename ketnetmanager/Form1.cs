@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,13 +122,12 @@ namespace ketnetmanager
         {
             foreach (Control control in this.Controls)
             {
-                if (control is Panel panel && panel != acilacakPanel)
+                if (control is Panel panel && panel != acilacakPanel && panel.Tag != null && panel.Tag.ToString() == "mainpanel")
                 {
                     panel.Visible = false;
                 }
             }
             acilacakPanel.Visible = true;
-            panel4.Visible = true;
         }
         private Object myMasa(string tag)
         {
@@ -164,6 +165,20 @@ namespace ketnetmanager
 
         private void LogGoster(string tarih1)
         {
+            string selectedList = "LogDefteri";
+            switch(comboBox3.SelectedIndex)
+            {
+                case 0:
+                    selectedList = "LogDefteri";
+                    break;
+                case 1:
+                    selectedList = "adminLogs";
+                    break;
+                case 2:
+                    selectedList = "satisLogs";
+                    break;
+            }
+
             string bugun = DateTime.Today.ToString("yyyy-MM-dd");
 
             using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
@@ -171,11 +186,11 @@ namespace ketnetmanager
                 string komut;
                 if (string.IsNullOrEmpty(tarih1)) //tarih1 null ise bugüne kadarki hepsini göster
                 {
-                    komut = "SELECT * FROM LogDefteri WHERE Tarih <= @bugun";
+                    komut = "SELECT * FROM "+ selectedList +" WHERE Tarih <= @bugun";
                 }
                 else //değilse aralıktakileri göster
                 {
-                    komut = "SELECT * FROM LogDefteri WHERE Tarih BETWEEN @tarih1 AND @bugun";
+                    komut = "SELECT * FROM " + selectedList + " WHERE Tarih BETWEEN @tarih1 AND @bugun";
                 }
 
                 SqlCommand sqlCommand = new SqlCommand(komut, baglanti);
@@ -192,10 +207,6 @@ namespace ketnetmanager
 
                 dataGridView1.DataSource = table;
             }
-
-            //comboBox1.DataSource = fiyatTarifeleri;
-            //comboBox1.DisplayMember = "Key";
-            //comboBox1.ValueMember = "Value";
 
         }
 
@@ -219,8 +230,25 @@ namespace ketnetmanager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //LogGoster(null);
+            LogGoster(null);
             SayfaDegistir(panel1);
+
+            comboBox2.SelectedIndex = 0;
+            comboBox3.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 5;
+            label25.Text = fiyatTarifeleri[comboBox2.Text].ToString();
+
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 9);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
         } 
 
         private void button2_Click(object sender, EventArgs e)
@@ -243,24 +271,44 @@ namespace ketnetmanager
 
         private void button6_Click(object sender, EventArgs e)
         {
-            SayfaDegistir(panel3);
-            string bugun = DateTime.Today.ToString("yyyy-MM-dd");
-
+            SayfaDegistir(panel3); 
             using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
             {
+                    string komut = "SELECT urunIsim, urunFiyat, urunAciklama, urunImg FROM kafeterya";
 
-                baglanti.Open();
-                string selectQuery = "SELECT * FROM kafeterya";
-                using (SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, baglanti))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dataGridView2.DataSource = dataTable;
-                }
+                SqlCommand sqlCommand = new SqlCommand(komut, baglanti);
 
+                SqlDataAdapter myItems = new SqlDataAdapter(sqlCommand);
+                DataTable table = new DataTable();
+                myItems.Fill(table);
+
+                dataGridView2.DataSource = table;
             }
+            dataGridView2.Columns["urunIsim"].HeaderText = "Ürün İsmi";
+            dataGridView2.Columns["urunFiyat"].HeaderText = "Fiyat";
+            dataGridView2.Columns["urunAciklama"].HeaderText = "Açıklama";
+            dataGridView2.Columns["urunImg"].HeaderText = "Ürün Resmi";
 
+            dataGridView2.Columns["urunFiyat"].Width = 80;
+
+            dataGridView2.BackgroundColor = Color.White;
+            dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            dataGridView2.DefaultCellStyle.Font = new Font("Arial", 9);
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView2.BorderStyle = BorderStyle.None;
+            dataGridView2.GridColor = Color.Gray;
+            dataGridView2.AllowUserToOrderColumns = true;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.RowHeadersVisible = false;
         }
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text;
+            (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"urunIsim LIKE '{searchText}%'";
+        }
+
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -333,11 +381,11 @@ namespace ketnetmanager
                     baslangicTarih = bugun.AddDays(-360);
                     break;
                 default:
+                    LogGoster(null);
                     return;
             }
 
             string myTarih = baslangicTarih.ToString("yyyy-MM-dd");
-
             LogGoster(myTarih);
         }
 
@@ -387,7 +435,6 @@ namespace ketnetmanager
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -437,6 +484,39 @@ namespace ketnetmanager
 
             seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"]);
 
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow != null && dataGridView2.CurrentRow.Cells["urunImg"] != null)
+            {
+                if (dataGridView2.CurrentRow.Cells["urunImg"].Value is byte[] resimVerisi && resimVerisi.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(resimVerisi))
+                    {
+                        pictureBox25.Image = Image.FromStream(ms);
+                    }
+                }
+            }
+            label30.Text = dataGridView2.CurrentRow.Cells["urunIsim"].Value.ToString();
+            label31.Text = dataGridView2.CurrentRow.Cells["urunAciklama"].Value.ToString();
+            label32.Text = dataGridView2.CurrentRow.Cells["urunFiyat"].Value.ToString();
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LogGoster(null);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SayfaDegistir(panel7);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //form4 acilacak
         }
     }
 }

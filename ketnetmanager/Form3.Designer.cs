@@ -47,9 +47,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(132, 318);
+            this.button1.Location = new System.Drawing.Point(99, 318);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(225, 42);
+            this.button1.Size = new System.Drawing.Size(300, 42);
             this.button1.TabIndex = 0;
             this.button1.Text = "Görsel Seç";
             this.button1.UseVisualStyleBackColor = true;
@@ -57,6 +57,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = global::ketnetmanager.Resource1.noimage;
+            this.pictureBox1.Image = global::ketnetmanager.Resource1.noimage;
             this.pictureBox1.Location = new System.Drawing.Point(99, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);
