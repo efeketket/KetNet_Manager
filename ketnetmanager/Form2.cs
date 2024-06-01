@@ -124,8 +124,7 @@ namespace ketnetmanager
                 Form1 form = new Form1();
                 this.Hide();
                 form.ShowDialog();
-                this.Close();
-
+                this.Show();
             }
             else
             {

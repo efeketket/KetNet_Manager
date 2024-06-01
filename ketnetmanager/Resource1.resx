@@ -118,79 +118,103 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="seepaswordtransph" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\seepaswordtransph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="seepaswordimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\seepaswordimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\loginbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="onmonitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\onmonitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonloginwithtxt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\buttonloginwithtxt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hidepasswordimg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\hidepasswordimg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hidepasswordimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\hidepasswordimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pclistminiocin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\pclistminiocin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="masalogs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\masalogs.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="kullanicipanelicontranspharant" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\kullanicipanelicontranspharant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loginbgbar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\loginbgbar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pcmenuicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\pcmenuicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="offmonitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\offmonitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonlogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\buttonlogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sifrepanelicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\sifrepanelicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="noimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\noimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hidepasswordtransph" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\hidepasswordtransph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bgimgbar2white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\bgimgbar2white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kullanicipanelicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\kullanicipanelicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buttonlogin11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\buttonlogin11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bgimgbar2gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\bgimgbar2gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="girisbutonpanel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\girisbutonpanel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="transpharanebglock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\transpharanebglock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pclistminiocin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\pclistminiocin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ortasegmentbgimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ortasegmentbgimg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pcmenuicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pcmenuicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonlogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\buttonlogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="offmonitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\offmonitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statbutonicon25x25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\statbutonicon25x25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon30x30pc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icon30x30pc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kullanicipanelicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\kullanicipanelicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonloginwithtxt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\buttonloginwithtxt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kullanicipanelicontranspharant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\kullanicipanelicontranspharant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logbuttonicon25x25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\logbuttonicon25x25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonlogin11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\buttonlogin11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="girisbutonpanel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\girisbutonpanel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loginbgbar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\loginbgbar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pclistminiocin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pclistminiocin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statsicon25x25colored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\statsicon25x25colored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bilgisayaricon45x25png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bilgisayaricon45x25png2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bgimgbar2gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bgimgbar2gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loginbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\loginbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="seepaswordimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\seepaswordimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sifrepanelicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sifrepanelicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hidepasswordimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\hidepasswordimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="onmonitor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\onmonitor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="masalogs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\masalogs.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="seepaswordtransph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\seepaswordtransph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noimage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\noimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shopicon25x25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\shopicon25x251.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bgimgbar2white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bgimgbar2white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hidepasswordtransph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\hidepasswordtransph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hidepasswordimg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\hidepasswordimg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vipmasabgimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\vipmasabgimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logsayfasi25x25colored" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\logsayfasi25x25colored.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

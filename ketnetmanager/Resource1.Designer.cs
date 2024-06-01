@@ -83,6 +83,16 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bilgisayaricon45x25png {
+            get {
+                object obj = ResourceManager.GetObject("bilgisayaricon45x25png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap buttonlogin {
             get {
                 object obj = ResourceManager.GetObject("buttonlogin", resourceCulture);
@@ -183,6 +193,16 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap logbuttonicon25x25 {
+            get {
+                object obj = ResourceManager.GetObject("logbuttonicon25x25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap loginbg {
             get {
                 object obj = ResourceManager.GetObject("loginbg", resourceCulture);
@@ -196,6 +216,16 @@ namespace ketnetmanager {
         public static System.Drawing.Bitmap loginbgbar {
             get {
                 object obj = ResourceManager.GetObject("loginbgbar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap logsayfasi25x25colored {
+            get {
+                object obj = ResourceManager.GetObject("logsayfasi25x25colored", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -254,6 +284,16 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ortasegmentbgimg {
+            get {
+                object obj = ResourceManager.GetObject("ortasegmentbgimg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap pclistminiocin {
             get {
                 object obj = ResourceManager.GetObject("pclistminiocin", resourceCulture);
@@ -304,6 +344,16 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap shopicon25x25 {
+            get {
+                object obj = ResourceManager.GetObject("shopicon25x25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap sifrepanelicon {
             get {
                 object obj = ResourceManager.GetObject("sifrepanelicon", resourceCulture);
@@ -314,9 +364,39 @@ namespace ketnetmanager {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap statbutonicon25x25 {
+            get {
+                object obj = ResourceManager.GetObject("statbutonicon25x25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap statsicon25x25colored {
+            get {
+                object obj = ResourceManager.GetObject("statsicon25x25colored", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap transpharanebglock {
             get {
                 object obj = ResourceManager.GetObject("transpharanebglock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap vipmasabgimg {
+            get {
+                object obj = ResourceManager.GetObject("vipmasabgimg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

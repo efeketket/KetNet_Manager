@@ -30,30 +30,30 @@ namespace ketnetmanager
                             { "Orta Fiyat", 20.0 },
                             { "V.I.P Fiyat", 30.0 }
                         };
-            readonly Masalar masa1 = new Masalar("masa1", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa2 = new Masalar("masa2", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa3 = new Masalar("masa3", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa4 = new Masalar("masa4", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa5 = new Masalar("masa5", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa6 = new Masalar("masa6", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa7 = new Masalar("masa7", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa8 = new Masalar("masa8", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa9 = new Masalar("masa9", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa10 = new Masalar("masa10", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa11 = new Masalar("masa11", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa12 = new Masalar("masa12", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa13 = new Masalar("masa13", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa14 = new Masalar("masa14", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa15 = new Masalar("masa15", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa16 = new Masalar("masa16", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa17 = new Masalar("masa17", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa18 = new Masalar("masa18", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa19 = new Masalar("masa19", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa20 = new Masalar("masa20", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa21 = new Masalar("masa21", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa22 = new Masalar("masa22", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa23 = new Masalar("masa23", fiyatTarifeleri["Normal Fiyat"]);
-            readonly Masalar masa24 = new Masalar("masa24", fiyatTarifeleri["Normal Fiyat"]);
+            readonly Masalar masa1 = new Masalar("masa1", fiyatTarifeleri);
+            readonly Masalar masa2 = new Masalar("masa2", fiyatTarifeleri);
+            readonly Masalar masa3 = new Masalar("masa3", fiyatTarifeleri);
+            readonly Masalar masa4 = new Masalar("masa4", fiyatTarifeleri);
+            readonly Masalar masa5 = new Masalar("masa5", fiyatTarifeleri);
+            readonly Masalar masa6 = new Masalar("masa6", fiyatTarifeleri);
+            readonly Masalar masa7 = new Masalar("masa7", fiyatTarifeleri);
+            readonly Masalar masa8 = new Masalar("masa8", fiyatTarifeleri);
+            readonly Masalar masa9 = new Masalar("masa9", fiyatTarifeleri);
+            readonly Masalar masa10 = new Masalar("masa10", fiyatTarifeleri);
+            readonly Masalar masa11 = new Masalar("masa11", fiyatTarifeleri);
+            readonly Masalar masa12 = new Masalar("masa12", fiyatTarifeleri);
+            readonly Masalar masa13 = new Masalar("masa13", fiyatTarifeleri);
+            readonly Masalar masa14 = new Masalar("masa14", fiyatTarifeleri);
+            readonly Masalar masa15 = new Masalar("masa15", fiyatTarifeleri);
+            readonly Masalar masa16 = new Masalar("masa16", fiyatTarifeleri);
+            readonly Masalar masa17 = new Masalar("masa17", fiyatTarifeleri);
+            readonly Masalar masa18 = new Masalar("masa18", fiyatTarifeleri);
+            readonly Masalar masa19 = new Masalar("masa19", fiyatTarifeleri);
+            readonly Masalar masa20 = new Masalar("masa20", fiyatTarifeleri);
+            readonly Masalar masa21 = new Masalar("masa21", fiyatTarifeleri);
+            readonly Masalar masa22 = new Masalar("masa22", fiyatTarifeleri);
+            readonly Masalar masa23 = new Masalar("masa23", fiyatTarifeleri);
+            readonly Masalar masa24 = new Masalar("masa24", fiyatTarifeleri);
 
             readonly string sqlbaglantisi = Properties.Resources.sqllink;
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
@@ -61,10 +61,7 @@ namespace ketnetmanager
             readonly string myDosya = Resource1.masalogs;
             
             public double kazanc;
-
-
             public bool isAcik = false;
-
 
         public Form1()
         {
@@ -77,14 +74,93 @@ namespace ketnetmanager
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            masalarUpdate();
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void masalarUpdate()
         {
+            List<PictureBox> pictureBoxes = panel5.Controls.OfType<PictureBox>().ToList();
+            FiyatTarifeleriniGuncelle(sqlbaglantisi);
+
+            foreach (PictureBox pictureBox in pictureBoxes)
+            {
+                Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+                if (seciliMasa.getMasaData("masaDurum", "masaDurum") == 1)
+                {
+                    pictureBox.Image = Resource1.onmonitor;
+                    seciliMasa.AcKapat();
+                }
+                else
+                {
+                    pictureBox.Image = Resource1.offmonitor;
+                }
+            }
+
+            foreach (PictureBox pictureBox in pictureBoxes)
+            {
+                Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+                switch (seciliMasa.getMasaData("masaDurum", "masaSegment"))
+                {
+                    case 0:
+                        pictureBox.BackgroundImage = null;
+                        break;
+                    case 1:
+                        pictureBox.BackgroundImage = Resource1.ortasegmentbgimg;
+                        break;
+                    case 2:
+                        pictureBox.BackgroundImage = Resource1.vipmasabgimg;
+                        break;
+                }
+            }
 
         }
+
+        public static void FiyatTarifeleriniGuncelle(string connectionString)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT segment, fiyat FROM segmentFiyatlar";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                if (reader["segment"] != DBNull.Value && reader["fiyat"] != DBNull.Value)
+                                {
+                                    string segment = reader["segment"].ToString();
+                                    double yeniFiyat = Convert.ToDouble(reader["fiyat"]);
+
+                                    if (fiyatTarifeleri.ContainsKey(segment))
+                                    {
+                                        fiyatTarifeleri[segment] = yeniFiyat;
+                                        Console.WriteLine($"Fiyat güncellendi: {segment} - {yeniFiyat}");
+                                    }
+                                    else
+                                    {
+                                        // Optional: Add new segment if not found
+                                        fiyatTarifeleri.Add(segment, yeniFiyat);
+                                        Console.WriteLine($"Yeni segment eklendi: {segment} - {yeniFiyat}");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Hata: {ex.Message}");
+                // Hata ayrıntılarını loglama veya kullanıcıya gösterme işlemleri yapılabilir.
+            }
+        }
+
+
 
         private void masaBilgileriToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -103,7 +179,8 @@ namespace ketnetmanager
             seciliMasa.AcKapat();
             isAcik = seciliMasa.IsAcik;
             KazancEkle(seciliMasa.ToplamBorc);
-            label27.Text = kazanc.ToString();
+            label27.Text = seciliMasa.saatlikUcret.ToString(); 
+                //kazanc.ToString();
 
             if (isAcik == true)
             {
@@ -131,6 +208,7 @@ namespace ketnetmanager
             }
             acilacakPanel.Visible = true;
         }
+
         private Object myMasa(string tag)
         {
 
@@ -232,6 +310,18 @@ namespace ketnetmanager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button1.BackColor = Color.FromArgb(46, 52, 72);
+
+            button7.BackColor = Color.FromArgb(21, 31, 52);
+            button10.BackColor = Color.FromArgb(21, 31, 52);
+            button6.BackColor = Color.FromArgb(21, 31, 52);
+
+            pictureBox29.Visible = true;
+
+            pictureBox1.Visible = false;
+            pictureBox27.Visible = false;
+            pictureBox30.Visible = false;
+
             LogGoster(null);
             SayfaDegistir(panel1);
 
@@ -240,14 +330,14 @@ namespace ketnetmanager
             comboBox1.SelectedIndex = 5;
             label25.Text = fiyatTarifeleri[comboBox2.Text].ToString();
 
-            dataGridView1.BackgroundColor = Color.Beige;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 9);
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(37, 42, 64);
+
+            dataGridView1.Columns[0].Width = 30;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
+            dataGridView1.DefaultCellStyle.Font = new Font("Verdana", 10);
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.GridColor = Color.Gray;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
@@ -345,6 +435,16 @@ namespace ketnetmanager
 
         private void button7_Click(object sender, EventArgs e)
         {
+            button7.BackColor = Color.FromArgb(46, 52, 72);
+            button10.BackColor = Color.FromArgb(21, 31, 52);
+            button1.BackColor = Color.FromArgb(21, 31, 52);
+            button6.BackColor = Color.FromArgb(21, 31, 52);
+
+            pictureBox1.Visible = true;
+            pictureBox27.Visible = false;
+            pictureBox29.Visible = false;
+            pictureBox30.Visible = false;
+
             SayfaDegistir(panel2);
         }
 
@@ -443,12 +543,38 @@ namespace ketnetmanager
                     MessageBox.Show(degisecektarife + " Fiyat tarifesi " + tarifegirdi+ "₺ olarak güncellendi.");
                     fiyatTarifeleri[degisecektarife] = tarifegirdi;
                     label25.Text = fiyatTarifeleri[degisecektarife].ToString();
+                    int mysegment = Array.IndexOf(fiyatTarifeleri.Values.ToArray(), degisecektarife);
+
+                    List <PictureBox> pictureBoxes = panel5.Controls.OfType<PictureBox>().ToList();
+                    foreach (PictureBox pictureBox in pictureBoxes)
+                    {
+                        
+                        Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+                        switch(seciliMasa.segment)
+                        {
+                            case 0:
+                                seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"], seciliMasa.segment);
+                                break;
+
+                            case 1:
+                                seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"], seciliMasa.segment);
+                                break;
+
+                            case 2:
+                                seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"], seciliMasa.segment);
+                                break;
+                        }
+                    }
+
+
                 }
                 else
                 {
                     MessageBox.Show("Geçersiz değer! Lütfen geçerli bir değer giriniz.");
                 }
             }
+
 
             /* try
             {
@@ -492,7 +618,7 @@ namespace ketnetmanager
 
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
-            seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"]);
+            seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"],0);
         }
 
         private void ortaSegmenTarifeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -505,7 +631,7 @@ namespace ketnetmanager
 
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
-            seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"]);
+            seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"],1);
         }
 
         private void vIPTarifeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -517,7 +643,7 @@ namespace ketnetmanager
 
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
-            seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"]);
+            seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"],2);
 
         }
 
@@ -632,6 +758,89 @@ namespace ketnetmanager
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                
+                DialogResult result = MessageBox.Show("Formu kapatmak istediğinize emin misiniz? Arkaplanda devam eden işlemler olabilir.", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {   
+                }
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+            
+            }
+
+
+        private void pictureBox28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            List<PictureBox> pictureBoxes = panel5.Controls.OfType<PictureBox>().ToList();
+            foreach (PictureBox pictureBox in pictureBoxes)
+            {
+                Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+                if (seciliMasa.IsAcik == true)
+                {
+                    seciliMasa.AcKapat();
+                    pictureBox.Image = Resource1.offmonitor;
+                }
+            }
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            button10.BackColor = Color.FromArgb(46, 52, 72);
+
+            button7.BackColor = Color.FromArgb(21, 31, 52);
+            button1.BackColor = Color.FromArgb(21, 31, 52);
+            button6.BackColor = Color.FromArgb(21, 31, 52);
+
+            pictureBox27.Visible = true;
+
+            pictureBox1.Visible = false;
+            pictureBox29.Visible = false;
+            pictureBox30.Visible = false;
+
+            kafeteryaGuncelle();
+            SayfaDegistir(panel3);
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            button6.BackColor = Color.FromArgb(46, 52, 72);
+
+            button7.BackColor = Color.FromArgb(21, 31, 52);
+            button10.BackColor = Color.FromArgb(21, 31, 52);
+            button1.BackColor = Color.FromArgb(21, 31, 52);
+
+            pictureBox30.Visible = true;
+
+            pictureBox1.Visible = false;
+            pictureBox27.Visible = false;
+            pictureBox29.Visible = false;
+
+            SayfaDegistir(panel7);
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            masalarUpdate();
         }
     }
 }

@@ -113,6 +113,7 @@
     <EmbeddedResource Include="Resource1.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
@@ -198,6 +199,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon30x30pc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopicon25x251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bilgisayaricon45x25png2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vipmasabgimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ortasegmentbgimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ortasegmentbgimg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logbuttonicon25x25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statbutonicon25x25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statsicon25x25colored.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logsayfasi25x25colored.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

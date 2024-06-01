@@ -23,13 +23,40 @@ namespace ketnetmanager
         public string GecenSure { get; set; }
         public double ToplamBorc { get; set; }
         public bool IsAcik = false;
+        public int segment = 0;
 
         private Stopwatch Kronometre = new Stopwatch();
 
-        public Masalar(string tag,double saatlikUcret)
+        public Masalar(string tag,Dictionary<string,double> fiyatList)
         {
             this.MasaTag = tag;
-            this.saatlikUcret = saatlikUcret;
+            this.saatlikUcret = fiyatList.Values.ElementAt(getMasaData("masaDurum","masaSegment"));
+        }
+
+        public int getMasaData(string aranantablo,string aranansutun)
+        {
+            int deger = 0;
+
+            using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
+            {
+                connection.Open();
+                string query = "SELECT " + aranansutun + " FROM " + aranantablo + " WHERE masaTag = @masaTag";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@masaTag", this.MasaTag);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            deger = Convert.ToInt32(reader[aranansutun]);
+                        }
+                    }
+                }
+            }
+
+            return deger;
         }
 
         public virtual void AcKapat()
@@ -48,9 +75,12 @@ namespace ketnetmanager
             LogKaydet();
         }
 
-        public void setUcret(double saatlikUcret)
+        public void setUcret(double saatlikUcret,int segment)
         {
+            DataBaseKaydet("masaSegment", segment);
+            this.segment = segment;
             this.saatlikUcret = saatlikUcret;
+            
         }
         public double getUcret()
         {
@@ -59,15 +89,20 @@ namespace ketnetmanager
 
         public virtual void Kapat(double SaatlikUcret)
         {
+            DataBaseKaydet("masaDurum", 0);
             this.IsAcik = false;
             this.ToplamBorc += SureBitir() * (getUcret() / 60) ;
 
         }
         public virtual void Ac()
         {
-            this.ToplamBorc = 0;
-            this.IsAcik = true;
-            SureBaslat();
+            if (Kronometre.IsRunning == false)
+            {
+                DataBaseKaydet("masaDurum", 1);
+                this.ToplamBorc = 0;
+                this.IsAcik = true;
+                SureBaslat();
+            }
         }
 
         public virtual void SureBaslat()
@@ -116,10 +151,29 @@ namespace ketnetmanager
         {
             Form5 form = new Form5(this.MasaTag);
             form.ShowDialog();
-            MessageBox.Show(form.selectedFiyat.ToString(), "aa", MessageBoxButtons.OK);
             ToplamBorc += form.totalFiyat;
 
         }
+
+        public void DataBaseKaydet(string sutun,int deger)
+        {
+            using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
+            {
+                connection.Open();
+                string updateQuery = @"
+                    UPDATE masaDurum 
+                    SET " + sutun + " =@deger WHERE MasaTag = @masaTag";
+
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@deger", deger);
+                    command.Parameters.AddWithValue("@masaTag", this.MasaTag);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
 
         //eski method dosyaya işliyor
         /*public virtual void LogIsle()
