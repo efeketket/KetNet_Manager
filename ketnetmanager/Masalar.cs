@@ -11,7 +11,6 @@ using System.Data.SqlClient;
 
 namespace ketnetmanager
 {
-    
     internal class Masalar 
     {
         readonly string sqlbaglantisi = Properties.Resources.sqllink;
@@ -33,6 +32,9 @@ namespace ketnetmanager
             this.saatlikUcret = fiyatList.Values.ElementAt(getMasaData("masaDurum","masaSegment"));
         }
 
+
+
+        //verilen table ve sütuna göre gerekli datayı masanın tablosundan çeken method.
         public int getMasaData(string aranantablo,string aranansutun)
         {
             int deger = 0;

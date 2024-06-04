@@ -86,13 +86,8 @@ namespace ketnetmanager
                     }
                 }
 
-                MessageBox.Show("Ürün başarıyla veritabanına eklendi.", "Başarılı", MessageBoxButtons.OK);
-
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                pictureBox1.Image = Resource1.noimage;
-
+                MessageBox.Show("Ürün başarıyla markete eklendi.", "Başarılı", MessageBoxButtons.OK);
+                this.Close();
         }
 
         private byte[] görselEkle()

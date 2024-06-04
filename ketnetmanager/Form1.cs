@@ -26,10 +26,12 @@ namespace ketnetmanager
     {
             public static Dictionary<string, double> fiyatTarifeleri = new Dictionary<string, double>()
                         {
-                            { "Normal Fiyat", 10.0 },
-                            { "Orta Fiyat", 20.0 },
-                            { "V.I.P Fiyat", 30.0 }
+
+                            { "Normal Fiyat", 33.0 },
+                            { "Orta Fiyat", 50.0 },
+                            { "V.I.P Fiyat", 90.0 }
                         };
+
             readonly Masalar masa1 = new Masalar("masa1", fiyatTarifeleri);
             readonly Masalar masa2 = new Masalar("masa2", fiyatTarifeleri);
             readonly Masalar masa3 = new Masalar("masa3", fiyatTarifeleri);
@@ -74,15 +76,37 @@ namespace ketnetmanager
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            FiyatTarifeleriGuncelle();
             masalarUpdate();
+            kafeteryaGuncelle();
         }
 
-        private void masalarUpdate()
+        private void masalarUpdate() // serverdan bilgisayar durumunu öğren ve program başlarken işler.
         {
             List<PictureBox> pictureBoxes = panel5.Controls.OfType<PictureBox>().ToList();
-            FiyatTarifeleriniGuncelle(sqlbaglantisi);
 
-            foreach (PictureBox pictureBox in pictureBoxes)
+            foreach (PictureBox pictureBox in pictureBoxes) //segmenti öğrenir
+            {
+                Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
+
+                switch (seciliMasa.getMasaData("masaDurum", "masaSegment"))
+                {
+                    case 0:
+                        seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"], 0);
+                        pictureBox.BackgroundImage = null;
+                        break;
+                    case 1:
+                        seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"], 1);
+                        pictureBox.BackgroundImage = Resource1.ortasegmentbgimg;
+                        break;
+                    case 2:
+                        seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"], 2);
+                        pictureBox.BackgroundImage = Resource1.vipmasabgimg;
+                        break;
+                }
+            }
+
+            foreach (PictureBox pictureBox in pictureBoxes) //on or off
             {
                 Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
                 if (seciliMasa.getMasaData("masaDurum", "masaDurum") == 1)
@@ -96,58 +120,34 @@ namespace ketnetmanager
                 }
             }
 
-            foreach (PictureBox pictureBox in pictureBoxes)
-            {
-                Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
-
-                switch (seciliMasa.getMasaData("masaDurum", "masaSegment"))
-                {
-                    case 0:
-                        pictureBox.BackgroundImage = null;
-                        break;
-                    case 1:
-                        pictureBox.BackgroundImage = Resource1.ortasegmentbgimg;
-                        break;
-                    case 2:
-                        pictureBox.BackgroundImage = Resource1.vipmasabgimg;
-                        break;
-                }
-            }
-
         }
 
-        public static void FiyatTarifeleriniGuncelle(string connectionString)
+        private void FiyatTarifeleriGuncelle() // serverdaki tarife fiyatlarını günceller
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
                 {
-                    connection.Open();
-                    string query = "SELECT segment, fiyat FROM segmentFiyatlar";
+                    baglanti.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    string query = "SELECT TOP 1 normal, orta, vip FROM fiyattarifeler";
+                    using (SqlCommand command = new SqlCommand(query, baglanti))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.Read())
                             {
-                                if (reader["segment"] != DBNull.Value && reader["fiyat"] != DBNull.Value)
-                                {
-                                    string segment = reader["segment"].ToString();
-                                    double yeniFiyat = Convert.ToDouble(reader["fiyat"]);
+                                double normalFiyat = reader.GetDouble(reader.GetOrdinal("normal"));
+                                double ortaFiyat = reader.GetDouble(reader.GetOrdinal("orta"));
+                                double vipFiyat = reader.GetDouble(reader.GetOrdinal("vip"));
 
-                                    if (fiyatTarifeleri.ContainsKey(segment))
-                                    {
-                                        fiyatTarifeleri[segment] = yeniFiyat;
-                                        Console.WriteLine($"Fiyat güncellendi: {segment} - {yeniFiyat}");
-                                    }
-                                    else
-                                    {
-                                        // Optional: Add new segment if not found
-                                        fiyatTarifeleri.Add(segment, yeniFiyat);
-                                        Console.WriteLine($"Yeni segment eklendi: {segment} - {yeniFiyat}");
-                                    }
-                                }
+                                fiyatTarifeleri["Normal Fiyat"] = normalFiyat;
+                                fiyatTarifeleri["Orta Fiyat"] = ortaFiyat;
+                                fiyatTarifeleri["V.I.P Fiyat"] = vipFiyat;
+                            }
+                            else
+                            {
+                                Console.WriteLine("No data found in the table.");
                             }
                         }
                     }
@@ -155,8 +155,7 @@ namespace ketnetmanager
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Hata: {ex.Message}");
-                // Hata ayrıntılarını loglama veya kullanıcıya gösterme işlemleri yapılabilir.
+                Console.WriteLine("Hata." + ex.Message);
             }
         }
 
@@ -169,6 +168,7 @@ namespace ketnetmanager
 
         private void açKapatToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //toolstripin aç/kapat methodu. nesne dönüşümleriyle seçili pictureboxun tag etiketiyle nesneye ulaşır.
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             ContextMenuStrip menu = (ContextMenuStrip)clickedItem.Owner;
             PictureBox pictureBox = (PictureBox)menu.SourceControl;
@@ -180,7 +180,6 @@ namespace ketnetmanager
             isAcik = seciliMasa.IsAcik;
             KazancEkle(seciliMasa.ToplamBorc);
             label27.Text = seciliMasa.saatlikUcret.ToString(); 
-                //kazanc.ToString();
 
             if (isAcik == true)
             {
@@ -197,7 +196,7 @@ namespace ketnetmanager
             this.kazanc += Math.Round(gelenPara,2);
         }
 
-        private void SayfaDegistir(Panel acilacakPanel)
+        private void SayfaDegistir(Panel acilacakPanel) //sayfa değişimini yönetir. Methoda gelen panel açılacak panel.
         {
             foreach (Control control in this.Controls)
             {
@@ -209,7 +208,7 @@ namespace ketnetmanager
             acilacakPanel.Visible = true;
         }
 
-        private Object myMasa(string tag)
+        private Object myMasa(string tag) //tag değerinden hangi nesne olduğunu bulur.
         {
 
             switch (tag)
@@ -243,8 +242,8 @@ namespace ketnetmanager
         }
 
 
-        private void LogGoster(string tarih1)
-        {
+        private void LogGoster(string tarih1) //combobox indexine göre logları işlenecek tabloyu seçer. 
+        {                                     // methoda gelen tarih değerinden itibaren gösterir. null gelirse hepsini gösterir.
             string selectedList = "LogDefteri";
             switch(comboBox3.SelectedIndex)
             {
@@ -281,6 +280,7 @@ namespace ketnetmanager
                     sqlCommand.Parameters.AddWithValue("@tarih1", tarih1); 
                 }
 
+                //dataadatper nesnesiyle oluşturduğumuz tabloyu datagridview1 gönderir.
                 SqlDataAdapter myLogs = new SqlDataAdapter(sqlCommand);
                 DataTable table = new DataTable();
                 myLogs.Fill(table);
@@ -301,11 +301,6 @@ namespace ketnetmanager
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -322,16 +317,23 @@ namespace ketnetmanager
             pictureBox27.Visible = false;
             pictureBox30.Visible = false;
 
-            LogGoster(null);
+            LogGuncelle();
             SayfaDegistir(panel1);
 
+
+
+        } 
+
+        private void LogGuncelle()
+        {
+            LogGoster(null);
             comboBox2.SelectedIndex = 0;
             comboBox3.SelectedIndex = 0;
             comboBox1.SelectedIndex = 5;
-            label25.Text = fiyatTarifeleri[comboBox2.Text].ToString();
+            label25.Text = fiyatTarifeleri[comboBox2.Text].ToString()+ "₺";
 
+            //datagridview1 görsel değişiklikler
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(37, 42, 64);
-
             dataGridView1.Columns[0].Width = 30;
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
             dataGridView1.DefaultCellStyle.Font = new Font("Verdana", 10);
@@ -340,8 +342,8 @@ namespace ketnetmanager
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-        } 
+            dataGridView1.RowHeadersVisible = false;
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -366,7 +368,7 @@ namespace ketnetmanager
             kafeteryaGuncelle();
             SayfaDegistir(panel3);
         }
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        private void textBox1_TextChanged_2(object sender, EventArgs e) //textboxtaki texte göre kafeterya eşyalarını getir.
         {
             try
             {
@@ -392,13 +394,11 @@ namespace ketnetmanager
 
         }
 
-        private void kafeteryaGuncelle()
+        private void kafeteryaGuncelle() //serverdan kafeterya datasının son halini al. 
         {
-
-
             using (SqlConnection baglanti = new SqlConnection(sqlbaglantisi))
             {
-                string komut = "SELECT urunIsim, urunFiyat, urunAciklama, urunImg,id FROM kafeterya";
+                string komut = "SELECT id,urunImg,urunIsim,urunAciklama, urunFiyat FROM kafeterya";
 
                 SqlCommand sqlCommand = new SqlCommand(komut, baglanti);
 
@@ -406,30 +406,32 @@ namespace ketnetmanager
                 DataTable table = new DataTable();
                 myItems.Fill(table);
                 dataGridView2.DataSource = table;
+
             }
+            foreach (DataGridViewColumn column in dataGridView2.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+
+            //görsel ayarlamalar
+            dataGridView2.RowTemplate.Height = 70;
             dataGridView2.Columns["urunIsim"].HeaderText = "Ürün İsmi";
             dataGridView2.Columns["urunFiyat"].HeaderText = "Fiyat";
             dataGridView2.Columns["urunAciklama"].HeaderText = "Açıklama";
-
+            dataGridView2.Columns["urunImg"].HeaderText = "Ürün Resmi";
             dataGridView2.Columns["id"].HeaderText = "ID";
-            dataGridView2.AllowUserToOrderColumns = false;
-
-            dataGridView2.Columns["urunFiyat"].Width = 40;
-            dataGridView2.Columns["id"].Width = 25;
-
-            dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-            dataGridView2.DefaultCellStyle.Font = new Font("Arial", 9);
+            dataGridView2.Columns["urunImg"].Width = 70;
+            dataGridView2.Columns["urunFiyat"].Width = 60;
+            dataGridView2.Columns["urunIsim"].Width = 120;
+            dataGridView2.Columns["id"].Width = 30;
+            dataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(37, 42, 64);
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView2.BorderStyle = BorderStyle.None;
-            dataGridView2.GridColor = Color.Gray;
             dataGridView2.AllowUserToOrderColumns = true;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.RowHeadersVisible = false;
-
-
         }
 
 
@@ -493,6 +495,7 @@ namespace ketnetmanager
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //secili indexe göre LogGoster() methoduna gidecek değeri bul.
             DateTime bugun = DateTime.Today;
             DateTime baslangicTarih;
 
@@ -522,11 +525,6 @@ namespace ketnetmanager
             LogGoster(myTarih);
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click_2(object sender, EventArgs e)
         {
             double tarifegirdi;
@@ -542,7 +540,7 @@ namespace ketnetmanager
                     isTrue = true;
                     MessageBox.Show(degisecektarife + " Fiyat tarifesi " + tarifegirdi+ "₺ olarak güncellendi.");
                     fiyatTarifeleri[degisecektarife] = tarifegirdi;
-                    label25.Text = fiyatTarifeleri[degisecektarife].ToString();
+                    label25.Text = fiyatTarifeleri[degisecektarife].ToString() + "₺";
                     int mysegment = Array.IndexOf(fiyatTarifeleri.Values.ToArray(), degisecektarife);
 
                     List <PictureBox> pictureBoxes = panel5.Controls.OfType<PictureBox>().ToList();
@@ -606,9 +604,13 @@ namespace ketnetmanager
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label25.Text = fiyatTarifeleri[comboBox2.Text].ToString();
+            label25.Text = fiyatTarifeleri[comboBox2.Text].ToString() + "₺";
         }
 
+
+        //tarife değişiklikleri
+
+        //tarifesi değişecek masayı nesne dönüşümleriyle bul ve değiştir.
         private void normalTarifeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
@@ -619,6 +621,7 @@ namespace ketnetmanager
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
             seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"],0);
+            pictureBox.BackgroundImage =null;
         }
 
         private void ortaSegmenTarifeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -632,6 +635,7 @@ namespace ketnetmanager
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
             seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"],1);
+            pictureBox.BackgroundImage = Resource1.ortasegmentbgimg;
         }
 
         private void vIPTarifeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -644,9 +648,13 @@ namespace ketnetmanager
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
             seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"],2);
+            pictureBox.BackgroundImage = Resource1.vipmasabgimg;
 
         }
 
+
+
+        //seçili ürünü ürün kartına getir.
         private void dataGridView2_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView2.CurrentRow != null && dataGridView2.CurrentRow.Cells["urunImg"] != null)
@@ -668,6 +676,7 @@ namespace ketnetmanager
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             LogGoster(null);
+            comboBox1.SelectedIndex = 5;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -682,11 +691,11 @@ namespace ketnetmanager
             kafeteryaGuncelle();
         }
 
-        private void button9_Click_1(object sender, EventArgs e)
+        private void button9_Click_1(object sender, EventArgs e) //ürün silme butonu
         {
             if (dataGridView2.SelectedRows.Count > 0) 
             {
-                DialogResult result = MessageBox.Show("Seçili satırı silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Seçili ürünü silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -698,7 +707,7 @@ namespace ketnetmanager
 
                         int idToDelete = Convert.ToInt32(dataGridView2.Rows[selectedRowIndex].Cells["id"].Value); 
 
-                        string deleteQuery = "DELETE FROM adminLogs WHERE id = @id"; 
+                        string deleteQuery = "DELETE FROM kafeterya WHERE id = @id"; 
                         using (SqlCommand command = new SqlCommand(deleteQuery, connection))
                         {
                             command.Parameters.AddWithValue("@id", idToDelete);
@@ -723,6 +732,8 @@ namespace ketnetmanager
 
         private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            //seçili masayı bulur. UrunSat() methodunu çalıştırtırır.
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
             ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
@@ -762,6 +773,8 @@ namespace ketnetmanager
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            //form kapanırken verilecek uyarı
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 
@@ -790,6 +803,10 @@ namespace ketnetmanager
 
         private void button11_Click(object sender, EventArgs e)
         {
+
+            //açık bilgisayarları kapat.
+
+            //panel5 içerisindeki bütün pictureboxlarla bir nesne oluşturur. foreach ile içerisinde gezerek açık bilgisayarları bulur.
             List<PictureBox> pictureBoxes = panel5.Controls.OfType<PictureBox>().ToList();
             foreach (PictureBox pictureBox in pictureBoxes)
             {
@@ -798,6 +815,7 @@ namespace ketnetmanager
                 {
                     seciliMasa.AcKapat();
                     pictureBox.Image = Resource1.offmonitor;
+                    MessageBox.Show("Açık bilgisayarlar başarıyla kapatıldı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -817,7 +835,12 @@ namespace ketnetmanager
             pictureBox30.Visible = false;
 
             kafeteryaGuncelle();
+            dataGridView2.EnableHeadersVisualStyles = false;
+            dataGridView2.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             SayfaDegistir(panel3);
+
+
         }
 
         private void button6_Click_1(object sender, EventArgs e)
@@ -841,6 +864,31 @@ namespace ketnetmanager
         private void button13_Click(object sender, EventArgs e)
         {
             masalarUpdate();
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox28_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

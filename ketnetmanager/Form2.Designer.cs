@@ -44,6 +44,7 @@ namespace ketnetmanager
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -180,7 +181,7 @@ namespace ketnetmanager
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 15.85714F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(3, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(546, 45);
@@ -212,7 +213,19 @@ namespace ketnetmanager
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(242, 64);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Efe Ketancı\r\n821620221042";
+            this.label4.Text = "Kadir Özden\r\n821620221066";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.Location = new System.Drawing.Point(36, 665);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(242, 64);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Efe Ketancı\r\n821620221042";
             // 
             // Form2
             // 
@@ -222,6 +235,7 @@ namespace ketnetmanager
             this.BackgroundImage = global::ketnetmanager.Resource1.loginbg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1440, 839);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Name = "Form2";
@@ -256,5 +270,6 @@ namespace ketnetmanager
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private Label label5;
     }
 }

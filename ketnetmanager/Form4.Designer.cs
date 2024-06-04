@@ -102,8 +102,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ErrorImage = global::ketnetmanager.Resource1.noimage;
-            this.pictureBox1.Image = global::ketnetmanager.Resource1.noimage;
+            this.pictureBox1.BackgroundImage = global::ketnetmanager.Resource1.noimagebgkafeterya;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.ErrorImage = global::ketnetmanager.Resource1.noimagebgkafeterya;
+            this.pictureBox1.Image = global::ketnetmanager.Resource1.transparanth;
             this.pictureBox1.Location = new System.Drawing.Point(93, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 300);

@@ -128,8 +128,10 @@ namespace ketnetmanager
             }
             else
             {
-                MessageBox.Show("Başarısız Giriş");
+                MessageBox.Show("Başarısız Giriş","Hata",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 kullaniciLogIsle(textBox2.Text, "Başarısız");
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
 

@@ -227,5 +227,35 @@
   <ItemGroup>
     <None Include="Resources\logsayfasi25x25colored.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-image-icon-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noimagebgkafeterya.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparanth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cikisyapicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kilitleicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cikisyapicon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\githubpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainlogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

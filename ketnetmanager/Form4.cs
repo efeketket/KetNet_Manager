@@ -15,15 +15,13 @@ namespace ketnetmanager
 {
     public partial class Form4 : Form
     {
-        private int id;
-        string sqlbaglantisi = Properties.Resources.sqllink;
+        readonly private int id;
+        readonly string sqlbaglantisi = Properties.Resources.sqllink;
 
         public Form4(int id)
         {
             InitializeComponent();
             this.id = id;
-
-
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -62,7 +60,7 @@ namespace ketnetmanager
                             else
                             {
                                 MessageBox.Show("Ürün bulunamadı.");
-                                this.Close(); // Formu kapatın veya başka bir işlem yapın
+                                this.Close();
                             }
                         }
                     }
@@ -136,10 +134,8 @@ namespace ketnetmanager
                 }
             }
 
-            MessageBox.Show("Ürün başarıyla veritabanına eklendi.", "Başarılı", MessageBoxButtons.OK);
-
-            this.Close();
-
+                MessageBox.Show("Ürün başarıyla güncellendi.", "Başarılı", MessageBoxButtons.OK);
+                this.Close();
         }
         private byte[] görselEkle()
         {
@@ -151,8 +147,6 @@ namespace ketnetmanager
                     g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     g.DrawImage(myGörsel, 0, 0, 100, 100);
                 }
-
-                // Save the resized image to a MemoryStream
                 using (MemoryStream stream = new MemoryStream())
                 {
                     resizedImage.Save(stream, myGörsel.RawFormat);
