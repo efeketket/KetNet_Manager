@@ -57,7 +57,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(223, 58);
+            this.numericUpDown1.Location = new System.Drawing.Point(247, 58);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(67, 29);
             this.numericUpDown1.TabIndex = 2;
@@ -79,11 +79,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(188, 112);
+            this.button1.Location = new System.Drawing.Point(233, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 40);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "Sat";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 184);
+            this.ClientSize = new System.Drawing.Size(347, 191);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);

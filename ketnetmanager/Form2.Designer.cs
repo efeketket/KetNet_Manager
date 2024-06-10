@@ -211,9 +211,9 @@ namespace ketnetmanager
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label4.Location = new System.Drawing.Point(36, 745);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(242, 64);
+            this.label4.Size = new System.Drawing.Size(251, 64);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Kadir Özden\r\n821620221066";
+            this.label4.Text = "Kadircan Özden\r\n821620221066";
             // 
             // label5
             // 

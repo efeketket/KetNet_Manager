@@ -857,8 +857,42 @@ namespace ketnetmanager
             pictureBox27.Visible = false;
             pictureBox29.Visible = false;
 
+            label40.Text =  KazancHesaplaStat("Log Defteri").ToString() + "₺";
+
+            label39.Text = kazanc.ToString() + "₺";
+
             SayfaDegistir(panel7);
 
+        }
+
+        private double KazancHesaplaStat(string tablo)
+        {
+                double toplamBorcSum = 0;
+
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
+                    {
+                        connection.Open();
+                        
+                        string query = "SELECT SUM("+ tablo +") FROM LogDefteri";
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            object result = command.ExecuteScalar();
+
+                            if (result != DBNull.Value)
+                            {
+                                toplamBorcSum = Convert.ToDouble(result);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error calculating ToplamBorc sum: " + ex.Message);
+                }
+
+                return toplamBorcSum;
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -887,6 +921,21 @@ namespace ketnetmanager
         }
 
         private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/efeketket/ketnetmanager");
+        }
+
+        private void button12_Click(object sender, EventArgs e)
         {
 
         }
