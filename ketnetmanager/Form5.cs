@@ -48,7 +48,7 @@ namespace ketnetmanager
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedFiyat = GetFiyat(comboBox1.SelectedItem.ToString()) * seciliadet;
-            label2.Text = (GetFiyat(comboBox1.SelectedItem.ToString()) * seciliadet).ToString();
+            label2.Text = (GetFiyat(comboBox1.SelectedItem.ToString()) * seciliadet).ToString() + "₺";
 
 
         }

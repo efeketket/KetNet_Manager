@@ -54,6 +54,7 @@ namespace ketnetmanager
                                     using (MemoryStream ms = new MemoryStream(imageData))
                                     {
                                         pictureBox1.Image = Image.FromStream(ms);
+                                        pictureBox1.BackgroundImage = Resource1.transparanth;
                                     }
                                 }
                             }

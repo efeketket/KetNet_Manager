@@ -71,7 +71,7 @@ namespace ketnetmanager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=EfePc;Initial Catalog=ketnetmanager;Integrated Security=True.
+        ///   Looks up a localized string similar to Data Source=.;Initial Catalog=ketnetmanager;Integrated Security=True.
         /// </summary>
         public static string sqllink {
             get {

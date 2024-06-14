@@ -25,6 +25,8 @@ namespace ketnetmanager
 {
     public partial class Form1 : Form
     {
+
+            //bilgisayar saatlik fiyatlar listesi
             public static Dictionary<string, double> fiyatTarifeleri = new Dictionary<string, double>()
                         {
 
@@ -33,6 +35,8 @@ namespace ketnetmanager
                             { "V.I.P Fiyat", 90.0 }
                         };
 
+
+            //bilgisayar nesneleri
             readonly Masalar masa1 = new Masalar("masa1", fiyatTarifeleri);
             readonly Masalar masa2 = new Masalar("masa2", fiyatTarifeleri);
             readonly Masalar masa3 = new Masalar("masa3", fiyatTarifeleri);
@@ -58,6 +62,7 @@ namespace ketnetmanager
             readonly Masalar masa23 = new Masalar("masa23", fiyatTarifeleri);
             readonly Masalar masa24 = new Masalar("masa24", fiyatTarifeleri);
 
+            //sql linkini resources kısmında tutuyoruz
             readonly string sqlbaglantisi = Properties.Resources.sqllink;
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
@@ -119,7 +124,7 @@ namespace ketnetmanager
                 }
             }
 
-            foreach (PictureBox pictureBox in pictureBoxes) //on or off
+            foreach (PictureBox pictureBox in pictureBoxes) //on or off kontrol eder
             {
                 Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
                 if (seciliMasa.getMasaData("masaDurum", "masaDurum") == 1)
@@ -214,6 +219,8 @@ namespace ketnetmanager
 
         private void SayfaDegistir(Panel acilacakPanel) //sayfa değişimini yönetir. Methoda gelen panel açılacak panel.
         {
+            acilacakPanel.Visible = true;
+
             foreach (Control control in this.Controls)
             {
                 if (control is Panel panel && panel != acilacakPanel && panel.Tag != null && panel.Tag.ToString() == "mainpanel")
@@ -221,7 +228,7 @@ namespace ketnetmanager
                     panel.Visible = false;
                 }
             }
-            acilacakPanel.Visible = true;
+
         }
 
         private Object myMasa(string tag) //tag değerinden hangi nesne olduğunu bulur.
@@ -543,12 +550,15 @@ namespace ketnetmanager
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+
+            //secili fiyat tarifesini güncellemek üzere yeni interaction açar
             double tarifegirdi;
             bool isTrue = false;
             string degisecektarife = comboBox2.Text;
 
             while (!isTrue)
             {
+
                 string kullaniciGirdisi = Interaction.InputBox("Fiyat tarifesinin yeni fiyatını giriniz:", "");
 
                 if (double.TryParse(kullaniciGirdisi, out tarifegirdi))
@@ -859,7 +869,7 @@ namespace ketnetmanager
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -917,8 +927,8 @@ namespace ketnetmanager
             pictureBox27.Visible = false;
             pictureBox29.Visible = false;
 
-            comboBox4.SelectedIndex = 0;
-            SetKazancTablosu(7);
+            comboBox4.SelectedIndex = 1;
+            SetKazancTablosu(30);
             SetSegmentTablosu();
             setGelirTablosu();
 
@@ -943,23 +953,19 @@ namespace ketnetmanager
 
         }
 
-        private void SetSegmentTablosu()
+        private void SetSegmentTablosu() //segment tablosunu ayarlar
         {
             chart2.Series["MasaDagilimi"].Points.Clear();
-
-            chart2.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White; // X ekseni etiketlerini beyaza çevir
-            chart2.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White; // Y ekseni etiketlerini beyaza çevir
-
             chart2.Series["MasaDagilimi"].Points.AddXY("Normal", normalCount);
             chart2.Series["MasaDagilimi"].Points.AddXY("Orta", ortCount);
             chart2.Series["MasaDagilimi"].Points.AddXY("V.I.P.", vipCount);
         }
 
-        private void setGelirTablosu()
+        private void setGelirTablosu() //gelir tablosunu ayarlar
         {
             label53.Text = KazancHesaplaStat("ToplamBorc", "LogDefteri").ToString() + "₺";
             label50.Text = KazancHesaplaStat("kazanc", "satisLogs").ToString() + "₺";
-            label54.Text = kazanc.ToString();
+            label54.Text = kazanc.ToString() + "₺";
             label56.Text = (KazancHesaplaStat("ToplamBorc", "LogDefteri") + KazancHesaplaStat("kazanc", "satisLogs")).ToString() + "₺";
 
             chart3.Series["Gelir Dağılımı"].Points.Clear();
@@ -967,8 +973,6 @@ namespace ketnetmanager
             chart3.Series["Gelir Dağılımı"].Points.AddXY("Bilgisayar", KazancHesaplaStat("ToplamBorc", "LogDefteri"));
             chart3.Series["Gelir Dağılımı"].Points.AddXY("Kafeterya", KazancHesaplaStat("kazanc", "satisLogs"));
         }
-
-
 
         //girilen tarihteki toplam kazancı hesaplar 
         private double KazancHesaplaStat(string sutun,string tablo,string tarih)
