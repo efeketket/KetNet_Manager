@@ -58,6 +58,7 @@ namespace ketnetmanager
             readonly Masalar masa23 = new Masalar("masa23", fiyatTarifeleri);
             readonly Masalar masa24 = new Masalar("masa24", fiyatTarifeleri);
 
+            //sql linkini resources kısmında tutuyoruz
             readonly string sqlbaglantisi = Properties.Resources.sqllink;
             readonly Image offmonitor = ketnetmanager.Resource1.offmonitor;
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
@@ -917,8 +918,8 @@ namespace ketnetmanager
             pictureBox27.Visible = false;
             pictureBox29.Visible = false;
 
-            comboBox4.SelectedIndex = 0;
-            SetKazancTablosu(7);
+            comboBox4.SelectedIndex = 1;
+            SetKazancTablosu(30);
             SetSegmentTablosu();
             setGelirTablosu();
 

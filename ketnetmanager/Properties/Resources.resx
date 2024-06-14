@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="sqllink" xml:space="preserve">
-    <value>Data Source=EfePc;Initial Catalog=ketnetmanager;Integrated Security=True</value>
+    <value>Data Source=.;Initial Catalog=ketnetmanager;Integrated Security=True</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ortasegmentbgimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
