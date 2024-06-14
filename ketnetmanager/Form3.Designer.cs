@@ -47,6 +47,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(94, 318);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(300, 42);
@@ -70,31 +71,35 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 434);
+            this.textBox1.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(36, 423);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(432, 29);
+            this.textBox1.Size = new System.Drawing.Size(432, 39);
             this.textBox1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 406);
+            this.label1.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(33, 388);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 25);
+            this.label1.Size = new System.Drawing.Size(148, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Ürün İsmi";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 481);
+            this.label2.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(33, 474);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 25);
+            this.label2.Size = new System.Drawing.Size(231, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ürün Açıklaması";
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(38, 509);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -104,21 +109,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 670);
+            this.label3.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(32, 664);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 25);
+            this.label3.Size = new System.Drawing.Size(79, 32);
             this.label3.TabIndex = 6;
             this.label3.Text = "Fiyat";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(37, 699);
+            this.textBox3.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(36, 699);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(431, 29);
+            this.textBox3.Size = new System.Drawing.Size(431, 39);
             this.textBox3.TabIndex = 7;
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(38, 760);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(431, 49);
@@ -142,6 +150,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form3";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ürün Ekle";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -86,11 +95,23 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label48 = new System.Windows.Forms.Label();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label56 = new System.Windows.Forms.Label();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
@@ -171,6 +192,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
@@ -359,9 +385,9 @@
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(44, 979);
+            this.textBox1.Location = new System.Drawing.Point(45, 943);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 35);
+            this.textBox1.Size = new System.Drawing.Size(303, 35);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "Ürün Ara";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
@@ -373,7 +399,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.button8.Location = new System.Drawing.Point(494, 976);
+            this.button8.Location = new System.Drawing.Point(555, 940);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(168, 44);
             this.button8.TabIndex = 8;
@@ -387,7 +413,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.button4.Location = new System.Drawing.Point(317, 976);
+            this.button4.Location = new System.Drawing.Point(378, 940);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(168, 44);
             this.button4.TabIndex = 0;
@@ -401,7 +427,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.button5.Location = new System.Drawing.Point(982, 979);
+            this.button5.Location = new System.Drawing.Point(983, 943);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(168, 44);
             this.button5.TabIndex = 1;
@@ -415,7 +441,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.button9.Location = new System.Drawing.Point(1171, 979);
+            this.button9.Location = new System.Drawing.Point(1172, 943);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(168, 44);
             this.button9.TabIndex = 3;
@@ -428,30 +454,30 @@
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.Location = new System.Drawing.Point(72, 222);
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView2.Location = new System.Drawing.Point(73, 258);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 72;
             this.dataGridView2.RowTemplate.Height = 31;
-            this.dataGridView2.Size = new System.Drawing.Size(1245, 697);
+            this.dataGridView2.Size = new System.Drawing.Size(1245, 628);
             this.dataGridView2.TabIndex = 4;
             this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             this.dataGridView2.Sorted += new System.EventHandler(this.dataGridView2_Sorted);
@@ -459,9 +485,9 @@
             // pictureBox28
             // 
             this.pictureBox28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.pictureBox28.Location = new System.Drawing.Point(44, 204);
+            this.pictureBox28.Location = new System.Drawing.Point(42, 243);
             this.pictureBox28.Name = "pictureBox28";
-            this.pictureBox28.Size = new System.Drawing.Size(1295, 738);
+            this.pictureBox28.Size = new System.Drawing.Size(1295, 669);
             this.pictureBox28.TabIndex = 9;
             this.pictureBox28.TabStop = false;
             this.pictureBox28.Click += new System.EventHandler(this.pictureBox28_Click_1);
@@ -519,30 +545,30 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(72)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(31)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(72)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
             this.dataGridView1.Location = new System.Drawing.Point(63, 245);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 72;
             this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(1267, 550);
+            this.dataGridView1.Size = new System.Drawing.Size(1267, 525);
             this.dataGridView1.TabIndex = 10;
             // 
             // comboBox1
@@ -559,7 +585,7 @@
             "Son 3 Ay",
             "Son Yıl",
             "Tümü"});
-            this.comboBox1.Location = new System.Drawing.Point(1065, 835);
+            this.comboBox1.Location = new System.Drawing.Point(1064, 797);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(266, 33);
             this.comboBox1.TabIndex = 11;
@@ -591,8 +617,8 @@
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(1282, 83);
             this.label37.TabIndex = 95;
-            this.label37.Text = "Uygulamada gerçekleştirilen bütün işlemler bu sayfada\r\nkayıt altına alınır. Araçl" +
-    "ar yardımıyla çeşitli filtrelemeler yapılır.\r\n";
+            this.label37.Text = "Uygulamada gerçekleştirilen bütün işlemler bu sayfada kayıt altına alınır. Araçla" +
+    "r yardımıyla çeşitli filtrelemeler yapılır.\r\n";
             // 
             // label38
             // 
@@ -625,7 +651,7 @@
             "Masa Kayıtları",
             "Admin Kayıtları",
             "Ürün Satış Kayıtları"});
-            this.comboBox3.Location = new System.Drawing.Point(773, 835);
+            this.comboBox3.Location = new System.Drawing.Point(766, 795);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(271, 33);
             this.comboBox3.TabIndex = 12;
@@ -640,9 +666,9 @@
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.groupBox2.Location = new System.Drawing.Point(44, 921);
+            this.groupBox2.Location = new System.Drawing.Point(44, 882);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(557, 126);
+            this.groupBox2.Size = new System.Drawing.Size(557, 129);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ücret Tarifeleri";
@@ -689,7 +715,7 @@
             this.pictureBox31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
             this.pictureBox31.Location = new System.Drawing.Point(35, 207);
             this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(1321, 692);
+            this.pictureBox31.Size = new System.Drawing.Size(1321, 643);
             this.pictureBox31.TabIndex = 13;
             this.pictureBox31.TabStop = false;
             // 
@@ -714,6 +740,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(351, 1061);
             this.panel4.TabIndex = 39;
+            this.panel4.Tag = "locker";
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // pictureBox32
@@ -754,6 +781,7 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(80, 80);
             this.button12.TabIndex = 48;
+            this.button12.Tag = "locker";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
@@ -872,59 +900,270 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.panel11.Controls.Add(this.label41);
-            this.panel11.Controls.Add(this.label40);
-            this.panel11.Controls.Add(this.label39);
-            this.panel11.Location = new System.Drawing.Point(44, 649);
+            this.panel11.Controls.Add(this.label46);
+            this.panel11.Controls.Add(this.comboBox4);
+            this.panel11.Controls.Add(this.chart1);
+            this.panel11.Location = new System.Drawing.Point(47, 571);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1295, 374);
+            this.panel11.Size = new System.Drawing.Size(1321, 470);
             this.panel11.TabIndex = 101;
             // 
-            // label41
+            // label46
             // 
-            this.label41.AutoSize = true;
-            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.label41.Location = new System.Drawing.Point(34, 130);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(75, 25);
-            this.label41.TabIndex = 2;
-            this.label41.Text = "label41";
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Verdana", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label46.Location = new System.Drawing.Point(521, 17);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(315, 41);
+            this.label46.TabIndex = 107;
+            this.label46.Text = "Kazanç Tablosu";
             // 
-            // label40
+            // comboBox4
             // 
-            this.label40.AutoSize = true;
-            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.label40.Location = new System.Drawing.Point(34, 85);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(75, 25);
-            this.label40.TabIndex = 1;
-            this.label40.Text = "label40";
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Son 1 Hafta",
+            "Son 1 Ay",
+            "Son 3 Ay",
+            "Son Yıl"});
+            this.comboBox4.Location = new System.Drawing.Point(1017, 419);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(266, 33);
+            this.comboBox4.TabIndex = 106;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
-            // label39
+            // chart1
             // 
-            this.label39.AutoSize = true;
-            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
-            this.label39.Location = new System.Drawing.Point(35, 34);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(75, 25);
-            this.label39.TabIndex = 0;
-            this.label39.Text = "label39";
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderSkin.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
+            chartArea8.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisX2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.AxisY2.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            chartArea8.BorderColor = System.Drawing.Color.Transparent;
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
+            legend5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            legend5.ForeColor = System.Drawing.Color.White;
+            legend5.Name = "Legend1";
+            legend5.Position.Auto = false;
+            legend5.Position.Height = 9.64467F;
+            legend5.Position.Width = 10.42723F;
+            legend5.Position.X = 86.57277F;
+            legend5.Position.Y = 5.824273F;
+            this.chart1.Legends.Add(legend5);
+            this.chart1.Location = new System.Drawing.Point(-44, 18);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            series8.ChartArea = "ChartArea1";
+            series8.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            series8.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            series8.Legend = "Legend1";
+            series8.Name = "Kazanç";
+            this.chart1.Series.Add(series8);
+            this.chart1.Size = new System.Drawing.Size(1382, 395);
+            this.chart1.TabIndex = 3;
+            this.chart1.Text = "Haftalık Kazanç";
+            title3.Font = new System.Drawing.Font("Verdana", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            title3.Name = "Title1";
+            this.chart1.Titles.Add(title3);
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.panel10.Location = new System.Drawing.Point(897, 245);
+            this.panel10.Controls.Add(this.label48);
+            this.panel10.Controls.Add(this.chart2);
+            this.panel10.Location = new System.Drawing.Point(973, 204);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(442, 343);
+            this.panel10.Size = new System.Drawing.Size(392, 350);
             this.panel10.TabIndex = 100;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Verdana", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label48.Location = new System.Drawing.Point(63, 18);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(256, 41);
+            this.label48.TabIndex = 108;
+            this.label48.Text = "Masa Türleri";
+            // 
+            // chart2
+            // 
+            this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            this.chart2.BorderlineColor = System.Drawing.Color.Transparent;
+            this.chart2.BorderSkin.BackColor = System.Drawing.Color.Transparent;
+            this.chart2.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
+            chartArea9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            chartArea9.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea9);
+            legend6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            legend6.ForeColor = System.Drawing.Color.White;
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
+            this.chart2.Location = new System.Drawing.Point(6, 68);
+            this.chart2.Name = "chart2";
+            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series9.LabelForeColor = System.Drawing.Color.White;
+            series9.Legend = "Legend1";
+            series9.Name = "MasaDagilimi";
+            series9.ShadowColor = System.Drawing.Color.Empty;
+            this.chart2.Series.Add(series9);
+            this.chart2.Size = new System.Drawing.Size(374, 282);
+            this.chart2.TabIndex = 0;
+            this.chart2.Text = "chart2";
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.panel9.Location = new System.Drawing.Point(44, 245);
+            this.panel9.Controls.Add(this.label56);
+            this.panel9.Controls.Add(this.chart3);
+            this.panel9.Controls.Add(this.label55);
+            this.panel9.Controls.Add(this.label54);
+            this.panel9.Controls.Add(this.label53);
+            this.panel9.Controls.Add(this.label52);
+            this.panel9.Controls.Add(this.label51);
+            this.panel9.Controls.Add(this.label50);
+            this.panel9.Controls.Add(this.label49);
+            this.panel9.Controls.Add(this.label47);
+            this.panel9.Location = new System.Drawing.Point(47, 204);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(769, 343);
+            this.panel9.Size = new System.Drawing.Size(907, 350);
             this.panel9.TabIndex = 99;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.White;
+            this.label56.Location = new System.Drawing.Point(298, 209);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(111, 32);
+            this.label56.TabIndex = 118;
+            this.label56.Text = "label56";
+            // 
+            // chart3
+            // 
+            this.chart3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            this.chart3.BorderlineColor = System.Drawing.Color.Transparent;
+            this.chart3.BorderSkin.BackColor = System.Drawing.Color.Transparent;
+            this.chart3.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
+            chartArea7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            chartArea7.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea7);
+            this.chart3.Location = new System.Drawing.Point(592, 57);
+            this.chart3.Name = "chart3";
+            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series7.LabelForeColor = System.Drawing.Color.White;
+            series7.Name = "Gelir Dağılımı";
+            series7.ShadowColor = System.Drawing.Color.Empty;
+            this.chart3.Series.Add(series7);
+            this.chart3.Size = new System.Drawing.Size(296, 277);
+            this.chart3.TabIndex = 117;
+            this.chart3.Text = "chart3";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label55.Location = new System.Drawing.Point(20, 209);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(235, 32);
+            this.label55.TabIndex = 116;
+            this.label55.Text = "Toplam Gelir  :";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.ForeColor = System.Drawing.Color.White;
+            this.label54.Location = new System.Drawing.Point(298, 302);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(111, 32);
+            this.label54.TabIndex = 115;
+            this.label54.Text = "label54";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.White;
+            this.label53.Location = new System.Drawing.Point(417, 137);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(111, 32);
+            this.label53.TabIndex = 114;
+            this.label53.Text = "label53";
+            // 
+            // label52
+            // 
+            this.label52.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label52.Location = new System.Drawing.Point(20, 264);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(280, 70);
+            this.label52.TabIndex = 113;
+            this.label52.Text = "Son Oturumdaki Toplam Gelir :";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label51.Location = new System.Drawing.Point(19, 133);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(394, 32);
+            this.label51.TabIndex = 112;
+            this.label51.Text = "Toplam Bilgisayar Geliri :";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.ForeColor = System.Drawing.Color.White;
+            this.label50.Location = new System.Drawing.Point(417, 80);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(111, 32);
+            this.label50.TabIndex = 111;
+            this.label50.Text = "label50";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Verdana", 11.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label49.Location = new System.Drawing.Point(20, 76);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(391, 32);
+            this.label49.TabIndex = 110;
+            this.label49.Text = "Toplam Kafeterya Geliri :";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Verdana", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(121)))), ((int)(((byte)(239)))));
+            this.label47.Location = new System.Drawing.Point(255, 18);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(360, 41);
+            this.label47.TabIndex = 109;
+            this.label47.Text = "Gelir İstatistikleri";
             // 
             // label23
             // 
@@ -1753,9 +1992,10 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ketnet Manager";
+            this.Text = "Ketnet Manager - Admin Paneli";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -1783,6 +2023,13 @@
             this.panel7.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -1931,10 +2178,22 @@
         private System.Windows.Forms.PictureBox pictureBox36;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label56;
     }
 }
 

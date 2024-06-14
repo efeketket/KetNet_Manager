@@ -31,6 +31,7 @@ namespace ketnetmanager
                 try
                 {
                     pictureBox1.Image = new Bitmap(openFileDialog1.FileName);
+                    pictureBox1.BackgroundImage = Resource1.transparanth;
                 }
                 catch (Exception ex)
                 {

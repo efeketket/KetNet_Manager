@@ -21,7 +21,6 @@ namespace ketnetmanager
         {
             InitializeComponent();
 
-
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -33,6 +32,8 @@ namespace ketnetmanager
             this.button1.FlatStyle = FlatStyle.Flat;
             this.button1.FlatAppearance.BorderSize = 0;
             this.textBox1.PasswordChar = '*';
+
+
         }
 
 
@@ -118,10 +119,12 @@ namespace ketnetmanager
         {
 
 
-            if (kullaniciKontrol(textBox2.Text, textBox1.Text) == true) // Şifreyi hashleyerek gönderin
+            if (kullaniciKontrol(textBox2.Text, textBox1.Text) == true)
             {
                 kullaniciLogIsle(textBox2.Text, "Giriş Yapıldı.");
                 Form1 form = new Form1();
+                textBox1.Text = "";
+                textBox2.Text = "";
                 this.Hide();
                 form.ShowDialog();
                 this.Show();

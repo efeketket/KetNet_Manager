@@ -239,6 +239,8 @@ namespace ketnetmanager
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Name = "Form2";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ket-Net Manager";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);

@@ -16,6 +16,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Microsoft.VisualBasic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
@@ -62,8 +63,16 @@ namespace ketnetmanager
             readonly Image onmonitor = ketnetmanager.Resource1.onmonitor;
             readonly string myDosya = Resource1.masalogs;
             
+            
+            //statler için değişkenler
             public double kazanc;
             public bool isAcik = false;
+            public bool isLocked = false;
+            public int normalCount = 0;
+            public int ortCount = 0;
+            public int vipCount = 0;
+            public int acikMasa = 0;
+            
 
         public Form1()
         {
@@ -79,6 +88,7 @@ namespace ketnetmanager
             FiyatTarifeleriGuncelle();
             masalarUpdate();
             kafeteryaGuncelle();
+
         }
 
         private void masalarUpdate() // serverdan bilgisayar durumunu öğren ve program başlarken işler.
@@ -94,14 +104,17 @@ namespace ketnetmanager
                     case 0:
                         seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"], 0);
                         pictureBox.BackgroundImage = null;
+                        normalCount++;
                         break;
                     case 1:
                         seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"], 1);
                         pictureBox.BackgroundImage = Resource1.ortasegmentbgimg;
+                        ortCount++;
                         break;
                     case 2:
                         seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"], 2);
                         pictureBox.BackgroundImage = Resource1.vipmasabgimg;
+                        vipCount++;
                         break;
                 }
             }
@@ -112,6 +125,7 @@ namespace ketnetmanager
                 if (seciliMasa.getMasaData("masaDurum", "masaDurum") == 1)
                 {
                     pictureBox.Image = Resource1.onmonitor;
+                    acikMasa++;
                     seciliMasa.AcKapat();
                 }
                 else
@@ -184,9 +198,11 @@ namespace ketnetmanager
             if (isAcik == true)
             {
                 pictureBox.Image = Resource1.onmonitor;
+                acikMasa++;
             } else
             {
                 pictureBox.Image = Resource1.offmonitor;
+                acikMasa--;
             }
 
         }
@@ -613,6 +629,8 @@ namespace ketnetmanager
         //tarifesi değişecek masayı nesne dönüşümleriyle bul ve değiştir.
         private void normalTarifeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
             ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
@@ -620,8 +638,22 @@ namespace ketnetmanager
 
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
+            switch (seciliMasa.getMasaData("masaDurum", "masaSegment"))
+            {
+                case 0:
+                    normalCount--;
+                    break;
+                case 1:
+                    ortCount--;
+                    break;
+                case 2:
+                    vipCount--;
+                    break;
+            }
+
             seciliMasa.setUcret(fiyatTarifeleri["Normal Fiyat"],0);
             pictureBox.BackgroundImage =null;
+            normalCount++;
         }
 
         private void ortaSegmenTarifeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -634,12 +666,28 @@ namespace ketnetmanager
 
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
+            switch (seciliMasa.getMasaData("masaDurum", "masaSegment"))
+            {
+                case 0:
+                    normalCount--;
+                    break;
+                case 1:
+                    ortCount--;
+                    break;
+                case 2:
+                    vipCount--;
+                    break;
+            }
+
+
             seciliMasa.setUcret(fiyatTarifeleri["Orta Fiyat"],1);
             pictureBox.BackgroundImage = Resource1.ortasegmentbgimg;
+            ortCount++;
         }
 
         private void vIPTarifeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             ToolStripDropDownMenu dropDownMenu = (ToolStripDropDownMenu)clickedItem.Owner;
             ContextMenuStrip menu = (ContextMenuStrip)dropDownMenu.OwnerItem.Owner;
@@ -647,9 +695,22 @@ namespace ketnetmanager
 
             Masalar seciliMasa = (Masalar)myMasa(pictureBox.Tag.ToString());
 
+            switch (seciliMasa.getMasaData("masaDurum", "masaSegment"))
+            {
+                case 0:
+                    normalCount--;
+                    break;
+                case 1:
+                    ortCount--;
+                    break;
+                case 2:
+                    vipCount--;
+                    break;
+            }
+
             seciliMasa.setUcret(fiyatTarifeleri["V.I.P Fiyat"],2);
             pictureBox.BackgroundImage = Resource1.vipmasabgimg;
-
+            vipCount++;
         }
 
 
@@ -778,7 +839,7 @@ namespace ketnetmanager
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 
-                DialogResult result = MessageBox.Show("Formu kapatmak istediğinize emin misiniz? Arkaplanda devam eden işlemler olabilir.", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Formu kapatmak istediğinize emin misiniz? Arkaplanda devam eden işlemler olabilir. Giriş ekranına geri döneceksiniz.", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {   
                 }
@@ -815,9 +876,9 @@ namespace ketnetmanager
                 {
                     seciliMasa.AcKapat();
                     pictureBox.Image = Resource1.offmonitor;
-                    MessageBox.Show("Açık bilgisayarlar başarıyla kapatıldı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            MessageBox.Show("Açık bilgisayarlar başarıyla kapatıldı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button10_Click_1(object sender, EventArgs e)
@@ -852,20 +913,65 @@ namespace ketnetmanager
             button1.BackColor = Color.FromArgb(21, 31, 52);
 
             pictureBox30.Visible = true;
-
             pictureBox1.Visible = false;
             pictureBox27.Visible = false;
             pictureBox29.Visible = false;
 
-            label40.Text =  KazancHesaplaStat("Log Defteri").ToString() + "₺";
-
-            label39.Text = kazanc.ToString() + "₺";
+            comboBox4.SelectedIndex = 0;
+            SetKazancTablosu(7);
+            SetSegmentTablosu();
+            setGelirTablosu();
 
             SayfaDegistir(panel7);
 
+
         }
 
-        private double KazancHesaplaStat(string tablo)
+
+        //kazançtablosunu girilen güne göre ayarlar
+        private void SetKazancTablosu(int gun)
+        {
+
+            chart1.Series["Kazanç"].Points.Clear();
+
+            for (int i = 0;i >-gun;i--)
+            {
+                string bugün = DateTime.Today.AddDays(i).ToString("yyyy-MM-dd");
+                chart1.Series["Kazanç"].Points.AddXY(bugün, KazancHesaplaStat("ToplamBorc", "LogDefteri", bugün) + KazancHesaplaStat("kazanc", "satisLogs",bugün));
+            }
+
+
+        }
+
+        private void SetSegmentTablosu()
+        {
+            chart2.Series["MasaDagilimi"].Points.Clear();
+
+            chart2.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White; // X ekseni etiketlerini beyaza çevir
+            chart2.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White; // Y ekseni etiketlerini beyaza çevir
+
+            chart2.Series["MasaDagilimi"].Points.AddXY("Normal", normalCount);
+            chart2.Series["MasaDagilimi"].Points.AddXY("Orta", ortCount);
+            chart2.Series["MasaDagilimi"].Points.AddXY("V.I.P.", vipCount);
+        }
+
+        private void setGelirTablosu()
+        {
+            label53.Text = KazancHesaplaStat("ToplamBorc", "LogDefteri").ToString() + "₺";
+            label50.Text = KazancHesaplaStat("kazanc", "satisLogs").ToString() + "₺";
+            label54.Text = kazanc.ToString();
+            label56.Text = (KazancHesaplaStat("ToplamBorc", "LogDefteri") + KazancHesaplaStat("kazanc", "satisLogs")).ToString() + "₺";
+
+            chart3.Series["Gelir Dağılımı"].Points.Clear();
+
+            chart3.Series["Gelir Dağılımı"].Points.AddXY("Bilgisayar", KazancHesaplaStat("ToplamBorc", "LogDefteri"));
+            chart3.Series["Gelir Dağılımı"].Points.AddXY("Kafeterya", KazancHesaplaStat("kazanc", "satisLogs"));
+        }
+
+
+
+        //girilen tarihteki toplam kazancı hesaplar 
+        private double KazancHesaplaStat(string sutun,string tablo,string tarih)
         {
                 double toplamBorcSum = 0;
 
@@ -874,26 +980,62 @@ namespace ketnetmanager
                     using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
                     {
                         connection.Open();
-                        
-                        string query = "SELECT SUM("+ tablo +") FROM LogDefteri";
+
+                        string query = $"SELECT SUM([{sutun}]) FROM {tablo} WHERE Tarih = @tarih";
+
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
+                            command.Parameters.AddWithValue("@tarih", tarih);
+
                             object result = command.ExecuteScalar();
 
                             if (result != DBNull.Value)
                             {
                                 toplamBorcSum = Convert.ToDouble(result);
                             }
-                        }
                     }
+                }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error calculating ToplamBorc sum: " + ex.Message);
+                MessageBox.Show("Kazanç hesaplarken bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 return toplamBorcSum;
         }
+
+        // tarih girilmediğinde bütün dataların kazancını hesaplayacak şekilde override ettim
+        private double KazancHesaplaStat(string sutun, string tablo)
+        {
+            double toplamBorcSum = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(sqlbaglantisi))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT SUM([{sutun}]) FROM {tablo}";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        object result = command.ExecuteScalar();
+
+                        if (result != DBNull.Value)
+                        {
+                            toplamBorcSum = Convert.ToDouble(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kazanç hesaplarken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return toplamBorcSum;
+        }
+
 
         private void button13_Click(object sender, EventArgs e)
         {
@@ -928,6 +1070,7 @@ namespace ketnetmanager
         private void panel7_Paint(object sender, PaintEventArgs e)
         {
 
+
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -937,7 +1080,58 @@ namespace ketnetmanager
 
         private void button12_Click(object sender, EventArgs e)
         {
+            switch(isLocked) //kilitleme switchi
+            {
+                case true:
+                    foreach (Control control in this.Controls)
+                    {
+                        if (control.Tag != "locker")
+                        {
+                            control.Enabled = true;
+                        }
+                    }
+                    this.isLocked = false;
+                    break;
 
+                case false:
+                    foreach (Control control in this.Controls)
+                    {
+                        if (control.Tag != "locker")
+                        {
+                            control.Enabled = false;
+                        }
+                    }
+                    this.isLocked = true;
+                    break;
+            }
+                
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox4.SelectedIndex)
+            {
+                case 0:
+                    SetKazancTablosu(7);
+                    break;
+
+                case 1:
+                    SetKazancTablosu(30);
+                    break;
+
+                case 2:
+                    SetKazancTablosu(90);
+                    break;
+                case 3:
+                    SetKazancTablosu(360);
+                    break;
+            }
         }
     }
 }

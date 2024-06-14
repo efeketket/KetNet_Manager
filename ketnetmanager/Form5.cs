@@ -82,7 +82,7 @@ namespace ketnetmanager
              seciliadet = Convert.ToInt32(numericUpDown1.Value);
              selectedFiyat = GetFiyat(comboBox1.SelectedItem.ToString()) * seciliadet;
 
-            label2.Text = (GetFiyat(comboBox1.SelectedItem.ToString()) * seciliadet).ToString();
+            label2.Text = (GetFiyat(comboBox1.SelectedItem.ToString()) * seciliadet).ToString() + " ₺";
         }
 
         private void button1_Click(object sender, EventArgs e)
