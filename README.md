@@ -1,8 +1,9 @@
 # KET-NET MANAGER
 
-Görsel Programlama - 2 dersi için hazırlamış olduğum internet kafe işletmelerine yönelik yönetim paneli uygulaması.
-Uygulama temelde bir internet kafe işletmensinin ihtiyaç duyabileceği araçları içinde barındırıyor. 
+Görsel Programlama - 2 dersi için hazırlamış olduğum internet kafe işletmelerine yönelik yönetim paneli projesi.
+Proje temelde bir internet kafe işletmensinin ihtiyaç duyabileceği araçları içinde barındırıyor. 
 
+Bu proje, internet kafe işletmelerine yönelik birçok materyali tek bir platformda sunarak işletmenin verimliliğini ve kontrolünü artırmayı amaçlar. Her bir araç, işletmenin farklı bir ihtiyacına cevap vermekte ve kullanıcı dostu sade bir arayüz ile kolay kullanım sağlamayı hedeflemekte.
 
 ## PROJEYE DAİR EKRAN GÖRÜNTÜLERİ VE ARAÇLAR 
 ### GİRİŞ EKRANI
@@ -25,4 +26,5 @@ Uygulamada gerçekleştirilen bütün işlemler bu sayfada kayıt altına alın�
 ![image](https://github.com/efeketket/KetNet_Manager/assets/117019767/92dff2e8-200e-475f-92d7-27260d86457d)
 İşletmeye ait veriler bu sayfada derlenip değerlendirilir. Çeşitli filtrelemelerle veriler analiz edilir. Veriler arttıkça tablolar daha detaylanır.
 
+---
 
